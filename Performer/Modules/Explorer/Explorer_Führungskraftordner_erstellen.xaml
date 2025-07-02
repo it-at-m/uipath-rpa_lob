@@ -1,10 +1,10 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Explorer_Führungskraftordner_erstellen" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="in_ExcelRow" Type="InArgument(x:String)" />
     <x:Property Name="in_str_ManagerEmailId" Type="InArgument(x:String)" />
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_bool_personenSucheFehlgeschlagen" Type="InArgument(x:Boolean)" />
     <x:Property Name="out_str_Final_Ordner_Pfad" Type="OutArgument(x:String)" />
+    <x:Property Name="in_int_excelIndex" Type="InArgument(x:Int32)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -40,6 +40,7 @@
       <x:String>System.Reflection</x:String>
       <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -92,20 +93,21 @@
       <AssemblyReference>System.IO.Packaging</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Explorer_Führungskraftordner_erstellen" sap:VirtualizedContainerService.HintSize="1558,1624" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Explorer_Führungskraftordner_erstellen" sap:VirtualizedContainerService.HintSize="1380,1274" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="Exist" />
+      <Variable x:TypeArguments="x:String" Name="str_OutputFolderPath" />
+      <Variable x:TypeArguments="x:String" Name="str_FailedFolderPath" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[in_ExcelRow + &quot;: Ordner erstellen&quot;]" />
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" Value="{x:Null}" AssetName="rpa001_OutputFolderPath" CacheStrategy="None" DisplayName="Get Asset" FolderPath="in_Config(&quot;OrchestratorQueueFolder&quot;).ToString" sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="GetRobotAsset_1" />
-    <ui:GetRobotAsset TimeoutMS="{x:Null}" Value="{x:Null}" AssetName="rpa001_FailedFolderPath" CacheStrategy="None" DisplayName="Get Asset" FolderPath="in_Config(&quot;OrchestratorQueueFolder&quot;).ToString" sap:VirtualizedContainerService.HintSize="502,175" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Zeile: &quot; +in_int_excelIndex.ToString + &quot; Ordner erstellen&quot;]" />
     <If Condition="[in_bool_personenSucheFehlgeschlagen]" sap:VirtualizedContainerService.HintSize="502,500" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_4">
@@ -119,7 +121,7 @@
               <OutArgument x:TypeArguments="x:String">[out_str_Final_Ordner_Pfad]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">rpa001_FailedFolderPath</InArgument>
+              <InArgument x:TypeArguments="x:String">[in_Config("rpa001_FailedFolderPath").ToString]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>
@@ -136,7 +138,7 @@
               <OutArgument x:TypeArguments="x:String">[out_str_Final_Ordner_Pfad]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String" xml:space="preserve">["rpa001_OutputFolderPath" +  in_str_ManagerEmailId]</InArgument>
+              <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_Config("rpa001_OutputFolderPath").ToString +  in_str_ManagerEmailId]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>

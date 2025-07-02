@@ -87,7 +87,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1427,954.04" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1444,1097.04" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="OutputFolderPath" />
       <Variable x:TypeArguments="x:String" Name="str_ManagerFirstName" />
@@ -109,6 +109,8 @@
       <Variable x:TypeArguments="x:String" Name="str_Finaler_Ordner_Pfad" />
       <Variable x:TypeArguments="x:Int32" Name="int_excelIndex" />
       <Variable x:TypeArguments="x:String" Name="str_status" />
+      <Variable x:TypeArguments="x:String" Name="str_Beamter_Tarif" />
+      <Variable x:TypeArguments="x:String" Name="str_direkteFuehrungskraft" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -131,7 +133,7 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_Mitarbeiterdaten_auslesen - Invoke Workflow File (Modules\Excel\Excel_Mitarbeiterdaten_auslesen.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\Excel\Excel_Mitarbeiterdaten_auslesen.xaml">
         <ui:InvokeWorkflowFile.Arguments>
-          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem" />
+          <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config" />
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_vorname">[str_vorname]</OutArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_nachname">[str_nachname]</OutArgument>
@@ -143,8 +145,10 @@
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_ausgezahlt_mit">[str_ausgezahlt_mit]</OutArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_GruppenEinzelpraemie">[str_GruppenEinzelpraemie]</OutArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_outputFolderPath">[str_outputFolderPath]</OutArgument>
-          <InArgument x:TypeArguments="x:Int32" x:Key="out_int_excelIndex">[int_excelIndex]</InArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_Unterschrift">[str_Unterschrift]</OutArgument>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_int_excelIndex">[int_excelIndex]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_strg_Beamter_Tarif">[str_Beamter_Tarif]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_str_direkteFuehrungskraft">[str_direkteFuehrungskraft]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -175,6 +179,7 @@
               <OutArgument x:TypeArguments="x:Boolean" x:Key="out_bool_sucheFehlgeschlagen">[bool_personenSucheFehlgeschlagen]</OutArgument>
               <InArgument x:TypeArguments="x:Int32" x:Key="in_int_excelIndex">[int_excelIndex]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="out_str_status">[str_status]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_str_direkteFuehrungskraft">[str_direkteFuehrungskraft]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -191,9 +196,9 @@
                   <av:Size x:Key="ShapeSize">110,70</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Explorer_Führungskraftordner_erstellen" sap:VirtualizedContainerService.HintSize="334,172" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Modules\Explorer\Explorer_Führungskraftordner_erstellen.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Explorer_Führungskraftordner_erstellen" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Modules\Explorer\Explorer_Führungskraftordner_erstellen.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:String" x:Key="in_ExcelRow" />
+                  <InArgument x:TypeArguments="x:Int32" x:Key="in_int_excelIndex">[int_excelIndex]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_str_ManagerEmailId">[str_ManagerEmailId]</InArgument>
                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config" />
                   <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_personenSucheFehlgeschlagen">[bool_personenSucheFehlgeschlagen]</InArgument>
@@ -213,7 +218,7 @@
                       <av:Size x:Key="ShapeSize">110,70</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Word_Serienbrief_erstellen - Invoke Workflow File (Modules\Word\Word_Serienbrief_erstellen.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Modules\Word\Word_Serienbrief_erstellen.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Word_Serienbrief_erstellen - Invoke Workflow File (Modules\Word\Word_Serienbrief_erstellen.xaml)" sap:VirtualizedContainerService.HintSize="336,172" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Modules\Word\Word_Serienbrief_erstellen.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_Anrede">[str_Anrede]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_Vorname">[str_vorname]</InArgument>
@@ -231,6 +236,7 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_Unterschrift">[str_Unterschrift]</InArgument>
                       <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_config" />
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_ausgezahlt_mit">[str_ausgezahlt_mit]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_str_Beamter_Tarif">[str_Beamter_Tarif]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -259,11 +265,12 @@
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="rpa001_OutputFolderPath" CacheStrategy="None" DisplayName="Get Asset" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="416,166" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+        <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="rpa001_OutputFolderPath" CacheStrategy="None" DisplayName="Get Asset" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="416,175" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
           <ui:GetRobotAsset.Value>
             <OutArgument x:TypeArguments="x:String">[OutputFolderPath]</OutArgument>
           </ui:GetRobotAsset.Value>
         </ui:GetRobotAsset>
+        <ui:Comment sap:VirtualizedContainerService.HintSize="416,98" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Schreiben Sie Ihre Kommentare in die Text-Eigenschaft." />
       </Sequence>
       <FlowStep.Next>
         <x:Reference>__ReferenceID0</x:Reference>
