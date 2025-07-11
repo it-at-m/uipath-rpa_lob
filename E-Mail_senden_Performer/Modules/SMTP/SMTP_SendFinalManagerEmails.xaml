@@ -1,9 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SMTP_SendFinalManagerEmails" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:uasc="clr-namespace:UiPath.Activities.System.Collections;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umame="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Enums;assembly=UiPath.Mail.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SMTP_SendFinalManagerEmails" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:uasc="clr-namespace:UiPath.Activities.System.Collections;assembly=UiPath.System.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umame="clr-namespace:UiPath.MicrosoftOffice365.Activities.Mail.Enums;assembly=UiPath.Mail.Activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="in_str_EmailHTML_Body" Type="InArgument(x:String)" />
     <x:Property Name="in_str_OutputFolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_str_StatusEmailReceiver" Type="InArgument(x:String)" />
+    <x:Property Name="in_str_EmailSubjectLine" Type="InArgument(x:String)" />
   </x:Members>
+  <this:SMTP_SendFinalManagerEmails.in_str_StatusEmailReceiver>
+    <InArgument x:TypeArguments="x:String" />
+  </this:SMTP_SendFinalManagerEmails.in_str_StatusEmailReceiver>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
@@ -48,6 +53,7 @@
       <x:String>UiPath.Mail.Activities</x:String>
       <x:String>System.Numerics</x:String>
       <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.Platform</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -116,18 +122,21 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SMTP_SendFinalManagerEmails" sap:VirtualizedContainerService.HintSize="900,4991" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SMTP_SendFinalManagerEmails" sap:VirtualizedContainerService.HintSize="1004,5308" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_htmlMailBody" />
-      <Variable x:TypeArguments="x:String" Name="str_lastFolderName" />
+      <Variable x:TypeArguments="x:String" Name="str_folderName" />
       <Variable x:TypeArguments="x:String" Name="str_managerEmail" />
       <Variable x:TypeArguments="scg:List(x:String)" Default="[New List(Of String)]" Name="list_filePaths" />
       <Variable x:TypeArguments="ss:SecureString" Name="secstr_botADPassword" />
       <Variable x:TypeArguments="x:String" Name="str_botADUsername" />
       <Variable x:TypeArguments="x:Int32" Name="int_folderCount" />
       <Variable x:TypeArguments="x:Boolean" Name="bool_folderExists" />
+      <Variable x:TypeArguments="scg:IEnumerable(upr:IResource)" Name="mail_anhänge" />
+      <Variable x:TypeArguments="x:String" Name="str_Archiv_Folder" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -135,17 +144,26 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="687,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;SMTP_SendFinalManagerEmails Started&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="687,4631" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="687,4948" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence DisplayName="Send Final Emails" sap:VirtualizedContainerService.HintSize="649,4371" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Send Final Emails" sap:VirtualizedContainerService.HintSize="649,4688" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="rpa001_ITM Robot Account" CacheStrategy="None" DisplayName="Get Credential" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="615,175" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secstr_botADPassword]" Username="[str_botADUsername]" />
-          <ui:ReadTextFile File="{x:Null}" Content="[str_htmlMailBody]" DisplayName="Read Text File" FileName="[in_str_EmailHTML_Body]" sap:VirtualizedContainerService.HintSize="615,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-          <ui:ForEachFolderX DisplayName="For Each Folder in Folder" FilterByName="*@*" Folder="[in_str_OutputFolderPath]" sap:VirtualizedContainerService.HintSize="615,3115" sap2010:WorkflowViewState.IdRef="ForEachFolderX_1" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="True">
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="615,173" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;1___Email Body: &quot; + in_str_EmailHTML_Body + &quot;______________&quot; + &quot;Outputfolder: &quot; + in_str_OutputFolderPath + &quot;_______________&quot; + &quot;Empfänger: &quot; + in_str_StatusEmailReceiver + &quot;_________________&quot; + &quot;Betreff: &quot; + in_str_EmailSubjectLine]" />
+          <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_Config(&quot;rpa001_ITM Robot Account&quot;).ToString]" CacheStrategy="None" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="615,175" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[secstr_botADPassword]" Username="[str_botADUsername]" />
+          <ui:ReadTextFile File="{x:Null}" Content="[str_htmlMailBody]" DisplayName="Read Text File" FileName="[in_Config(&quot;EmailBodyHtmlPath&quot;).ToString]" sap:VirtualizedContainerService.HintSize="615,112" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+          <Assign sap:VirtualizedContainerService.HintSize="615,114" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[str_Archiv_Folder]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[in_str_OutputFolderPath + "Archive_" + Now.ToString("yyyy") +"\"]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:ForEachFolderX DisplayName="For Each Folder in Folder" FilterByName="@" Folder="[in_str_OutputFolderPath]" sap:VirtualizedContainerService.HintSize="615,3229" sap2010:WorkflowViewState.IdRef="ForEachFolderX_1" IncludeSubFolders="False" OrderBy="NameAscFirst" SkipFoldersWithoutPermission="True">
             <ui:ForEachFolderX.Body>
               <ActivityAction x:TypeArguments="si:DirectoryInfo, x:Int32">
                 <ActivityAction.Argument1>
@@ -154,13 +172,13 @@
                 <ActivityAction.Argument2>
                   <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                 </ActivityAction.Argument2>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="581,2825" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="581,2939" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[Path.GetFileName( CurrentFolder.ToString.TrimEnd(&quot;\&quot;c)) = &quot;Archive_&quot; + Now.ToString(&quot;yyyy&quot;)]" sap:VirtualizedContainerService.HintSize="547,1688" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If Condition="[Path.GetFileName( CurrentFolder.ToString.TrimEnd(&quot;\&quot;c)) = &quot;Archive_&quot; + Now.ToString(&quot;yyyy&quot;)]" sap:VirtualizedContainerService.HintSize="547,1802" sap2010:WorkflowViewState.IdRef="If_3">
                     <If.Then>
                       <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_10">
                         <sap:WorkflowViewStateService.ViewState>
@@ -172,7 +190,7 @@
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="513,1294" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="513,1408" sap2010:WorkflowViewState.IdRef="Sequence_11">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -183,7 +201,7 @@
                             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
                                 <ui:AssignOperation.To>
-                                  <OutArgument x:TypeArguments="x:String">[str_lastFolderName]</OutArgument>
+                                  <OutArgument x:TypeArguments="x:String">[str_folderName]</OutArgument>
                                 </ui:AssignOperation.To>
                                 <ui:AssignOperation.Value>
                                   <InArgument x:TypeArguments="x:String">[Path.GetFileName(CurrentFolder.ToString.TrimEnd("\"c))]</InArgument>
@@ -238,7 +256,15 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:ForEachFileX>
-                        <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Existing" AttachmentsCollection="[list_filePaths]" Body="[str_htmlMailBody]" DisplayName="Send SMTP Mail Message" Email="[str_botADUsername]" EnableSSL="True" From="[in_Config(&quot;Groupmailbox&quot;).ToString]" sap:VirtualizedContainerService.HintSize="479,375" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="[Cint(in_Config(&quot;EmailSmtpPort&quot;).ToString)]" ResourceAttachments="[list_filePaths]" SecureConnection="Auto" SecurePassword="[secstr_botADPassword]" Server="[in_Config(&quot;EmailSmtpServer&quot;).ToString]" Subject="[in_Config(&quot;EmailSubjetctLine&quot;).ToString]" To="[str_managerEmail]">
+                        <Assign sap:VirtualizedContainerService.HintSize="479,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="scg:IEnumerable(upr:IResource)">[mail_anhänge]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)">[list_filePaths.Select(Function(f) UiPath.Platform.ResourceHandling.LocalResource.FromPath(f)).ToList()]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                        <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Existing" AttachmentsCollection="[list_filePaths]" Body="[str_htmlMailBody]" DisplayName="Send SMTP Mail Message" Email="[str_botADUsername]" EnableSSL="True" From="[in_Config(&quot;Groupmailbox&quot;).ToString]" sap:VirtualizedContainerService.HintSize="479,375" sap2010:WorkflowViewState.IdRef="SendMail_1" IgnoreCRL="False" IsBodyHtml="True" Port="[Cint(in_Config(&quot;EmailSmtpPort&quot;).ToString)]" ResourceAttachments="[mail_anhänge]" SecureConnection="Auto" SecurePassword="[secstr_botADPassword]" Server="[in_Config(&quot;EmailSmtpServer&quot;).ToString]" Subject="[in_str_EmailSubjectLine]" To="[str_folderName]">
                           <ui:SendMail.AttachmentsBackup>
                             <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
                               <usau:BackupSlot.BackupValues>
@@ -267,7 +293,7 @@
                       </Sequence>
                     </If.Else>
                   </If>
-                  <ui:FolderExistsX DisplayName="Folder Exists" Exists="[bool_folderExists]" sap:VirtualizedContainerService.HintSize="547,165" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[in_Config(&quot;OutputFolderPath&quot;).ToString + &quot;Archive_&quot; + Now.ToString(&quot;yyyy&quot;) +&quot;\&quot;]" />
+                  <ui:FolderExistsX DisplayName="Folder Exists" Exists="[bool_folderExists]" sap:VirtualizedContainerService.HintSize="547,165" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[str_Archiv_Folder]" />
                   <If Condition="[bool_folderExists]" sap:VirtualizedContainerService.HintSize="547,730" sap2010:WorkflowViewState.IdRef="If_2">
                     <If.Then>
                       <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_8">
@@ -276,7 +302,7 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Folder Exists: &quot; + in_Config(&quot;OutputFolderPath&quot;).ToString + &quot;Archive_&quot; + Now.ToString(&quot;yyyy&quot;) +&quot;\&quot;]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Folder Exists: &quot; + str_Archiv_Folder]" />
                       </Sequence>
                     </If.Then>
                     <If.Else>
@@ -286,12 +312,12 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="382,112" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[in_Config(&quot;OutputFolderPath&quot;).ToString + &quot;Archive_&quot; + Now.ToString(&quot;yyyy&quot;) +&quot;\&quot;]" />
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Folder Created: &quot; + in_Config(&quot;OutputFolderPath&quot;).ToString + &quot;Archive_&quot; + Now.ToString(&quot;yyyy&quot;) +&quot;\&quot;]" />
+                        <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="382,112" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[str_Archiv_Folder]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,164" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Folder Created: &quot; + str_Archiv_Folder]" />
                       </Sequence>
                     </If.Else>
                   </If>
-                  <ui:MoveFolderX DisplayName="Move Folder" From="[CurrentFolder.ToString]" sap:VirtualizedContainerService.HintSize="547,182" sap2010:WorkflowViewState.IdRef="MoveFolderX_1" Overwrite="True" To="[in_Config(&quot;OutputFolderPath&quot;).ToString + &quot;Archive_&quot; + Now.ToString(&quot;yyyy&quot;) +&quot;\&quot;]" />
+                  <ui:MoveFolderX DisplayName="Move Folder" From="[CurrentFolder.ToString]" sap:VirtualizedContainerService.HintSize="547,182" sap2010:WorkflowViewState.IdRef="MoveFolderX_1" Overwrite="True" To="[str_Archiv_Folder]" />
                 </Sequence>
               </ActivityAction>
             </ui:ForEachFolderX.Body>
@@ -310,15 +336,15 @@
               <InArgument x:TypeArguments="x:Int32">[Directory.GetDirectories(in_Config("OutputFolderPath").ToString).Count]</InArgument>
             </Assign.Value>
           </Assign>
-          <If Condition="[int_folderCount &gt;= 1]" sap:VirtualizedContainerService.HintSize="615,795" sap2010:WorkflowViewState.IdRef="If_1">
+          <If Condition="[int_folderCount &gt;= 1]" sap:VirtualizedContainerService.HintSize="615,711" sap2010:WorkflowViewState.IdRef="If_1">
             <If.Then>
-              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,410" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,326" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Existing" Body="Lieber Statusempfänger,&#xA;&#xA;der LoB-Bot hat E-Mails für alle gesplitteten Dateien gesendet, die im Ordner „Output“ im Unterordner des jeweiligen Managers gespeichert sind.&#xA;&#xA;Mit freundlichen Grüßen,&#xA;Ihr IT.LoB-Roboter&#xA;" DisplayName="Send SMTP Mail Message" Email="[str_botADUsername]" EnableSSL="True" From="[in_Config(&quot;Groupmailbox&quot;).ToString]" sap:VirtualizedContainerService.HintSize="382,350" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="False" Port="[Cint(in_Config(&quot;EmailSmtpPort&quot;).ToString)]" SecureConnection="Auto" SecurePassword="[secstr_botADPassword]" Server="[in_Config(&quot;EmailSmtpServer&quot;).ToString]" Subject="Status: LoB-Bescheide Bot: Emails Sent" To="[in_Config(&quot;StatusEmailReceiver&quot;).ToString]">
+                <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" ContinueOnError="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" Password="{x:Null}" ReplyTo="{x:Null}" ResourceAttachmentList="{x:Null}" ResourceAttachments="{x:Null}" Result="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" AttachmentInputMode="Existing" Body="Lieber Statusempfänger,&#xD;&#xA;&#xD;&#xA;der LoB-Bot hat E-Mails für alle Dateien gesendet, die im Ordner „Output“ im Unterordner des jeweiligen Managers gespeichert sind.&#xD;&#xA;&#xD;&#xA;Mit freundlichen Grüßen,&#xD;&#xA;Ihr IT.LoB-Roboter&#xD;&#xA;" DisplayName="Send SMTP Mail Message" Email="[str_botADUsername]" EnableSSL="True" From="[in_Config(&quot;Groupmailbox&quot;).ToString]" sap:VirtualizedContainerService.HintSize="382,266" sap2010:WorkflowViewState.IdRef="SendMail_2" IgnoreCRL="False" IsBodyHtml="False" Port="[Cint(in_Config(&quot;EmailSmtpPort&quot;).ToString)]" SecureConnection="Auto" SecurePassword="[secstr_botADPassword]" Server="[in_Config(&quot;EmailSmtpServer&quot;).ToString]" Subject="Status: LoB-Bescheide Bot: Emails Sent" To="[in_Config(&quot;StatusEmailReceiver&quot;).ToString]">
                   <ui:SendMail.AttachmentsBackup>
                     <usau:BackupSlot x:TypeArguments="umame:AttachmentInputMode" StoredValue="Existing">
                       <usau:BackupSlot.BackupValues>

@@ -47,7 +47,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="58">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="116">
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -105,9 +105,10 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
       <AssemblyReference>System.Runtime.CompilerServices.VisualC</AssemblyReference>
       <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1038,1017.04" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1287,927" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="ItemInformationCollection" />
     </Sequence.Variables>
@@ -141,9 +142,9 @@ Select t=Tuple.Create(name, in_TransactionItem(i))).ToDictionary(Function (x) x.
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Add ItemInformationCollection in case of using Datarows as TransactionItem" DisplayName="Add Queue Item" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,236" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" ItemInformationCollection="[ItemInformationCollection]" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]">
+        <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Add ItemInformationCollection in case of using Datarows as TransactionItem" DisplayName="Add Queue Item" FolderPath="[in_Config(&quot;OrchestratorQueueFolder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="334,236" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]">
           <ui:AddQueueItem.ItemInformation>
-            <InArgument x:TypeArguments="x:String" x:Key="Excel_Index">[ItemInformationCollection("Anrede").ToString]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="Excel_Index">[ItemInformationCollection("Excel_Index").ToString]</InArgument>
           </ui:AddQueueItem.ItemInformation>
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -164,7 +165,7 @@ Select t=Tuple.Create(name, in_TransactionItem(i))).ToDictionary(Function (x) x.
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <If Condition="[exception.Message.ToLower.Contains(&quot;duplicate reference&quot;)]" DisplayName="If duplicate reference" sap:VirtualizedContainerService.HintSize="368,297" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[exception.Message.ToLower.Contains(&quot;duplicate reference&quot;)]" DisplayName="If duplicate reference" sap:VirtualizedContainerService.HintSize="334,152" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <Throw DisplayName="Throw BRE duplicate reference" Exception="[new BusinessRuleException(exception.Message)]" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
               </If.Then>
