@@ -87,7 +87,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1651,634.2239999999999" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1670.4,920.8" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="OutputFolderPath" />
       <Variable x:TypeArguments="x:String" Name="str_ManagerFirstName" />
@@ -111,27 +111,28 @@
       <Variable x:TypeArguments="x:String" Name="str_status" />
       <Variable x:TypeArguments="x:String" Name="str_Beamter_Tarif" />
       <Variable x:TypeArguments="x:String" Name="str_direkteFuehrungskraft" />
+      <Variable x:TypeArguments="x:String" Name="str_neueAbteilung" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <av:Size x:Key="ShapeSize">50,50</av:Size>
+        <av:Size x:Key="ShapeSize">49.6,49.6</av:Size>
         <av:Point x:Key="ShapeLocation">415,125</av:Point>
         <av:PointCollection x:Key="ConnectorLocation">440,175 440,235</av:PointCollection>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID3</x:Reference>
+      <x:Reference>__ReferenceID4</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_2">
+    <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">385,235</av:Point>
-          <av:Size x:Key="ShapeSize">110,70</av:Size>
+          <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">440.2,305.4 440.2,345</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_Mitarbeiterdaten_auslesen - Invoke Workflow File (Modules\Excel\Excel_Mitarbeiterdaten_auslesen.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\Excel\Excel_Mitarbeiterdaten_auslesen.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_Mitarbeiterdaten_auslesen - Invoke Workflow File (Modules\Excel\Excel_Mitarbeiterdaten_auslesen.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\Excel\Excel_Mitarbeiterdaten_auslesen.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
@@ -161,11 +162,11 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">385,345</av:Point>
-              <av:Size x:Key="ShapeSize">110,70</av:Size>
+              <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
               <av:PointCollection x:Key="ConnectorLocation">440.2,415.4 440.2,445</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Browser_Wilma_SearchManager - Invoke Workflow File (Modules\Browser\Browser_Wilma_SearchManager.xaml)" sap:VirtualizedContainerService.HintSize="334,172" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Modules\Browser\Browser_Wilma_SearchManager.xaml">
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Browser_Wilma_SearchManager - Invoke Workflow File (Modules\Browser\Browser_Wilma_SearchManager.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Modules\Browser\Browser_Wilma_SearchManager.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="x:String" x:Key="in_str_FirstName">[str_vorname]</InArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_str_LastName">[str_nachname]</InArgument>
@@ -180,6 +181,7 @@
               <InArgument x:TypeArguments="x:Int32" x:Key="in_int_excelIndex">[int_excelIndex]</InArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="out_str_status">[str_status]</OutArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_str_direkteFuehrungskraft">[str_direkteFuehrungskraft]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="out_str_neueAbteilung">[str_neueAbteilung]</InArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -193,16 +195,17 @@
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">385,445</av:Point>
                   <av:PointCollection x:Key="ConnectorLocation">440.2,515.4 440.2,545</av:PointCollection>
-                  <av:Size x:Key="ShapeSize">110,70</av:Size>
+                  <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Explorer_Führungskraftordner_erstellen" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Modules\Explorer\Explorer_Führungskraftordner_erstellen.xaml">
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Explorer_Führungskraftordner_erstellen" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Modules\Explorer\Explorer_Führungskraftordner_erstellen.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
-                  <InArgument x:TypeArguments="x:Int32" x:Key="in_int_excelIndex">[int_excelIndex]</InArgument>
                   <InArgument x:TypeArguments="x:String" x:Key="in_str_ManagerEmailId">[str_ManagerEmailId]</InArgument>
                   <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
                   <InArgument x:TypeArguments="x:Boolean" x:Key="in_bool_personenSucheFehlgeschlagen">[bool_personenSucheFehlgeschlagen]</InArgument>
                   <OutArgument x:TypeArguments="x:String" x:Key="out_str_Final_Ordner_Pfad">[str_Finaler_Ordner_Pfad]</OutArgument>
+                  <InArgument x:TypeArguments="x:Int32" x:Key="in_int_excelIndex">[int_excelIndex]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="in_str_neueAbteilung">[str_neueAbteilung]</InArgument>
                 </ui:InvokeWorkflowFile.Arguments>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -215,10 +218,11 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">385,545</av:Point>
-                      <av:Size x:Key="ShapeSize">110,70</av:Size>
+                      <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">440.2,615.4 440.2,655</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Word_Serienbrief_erstellen - Invoke Workflow File (Modules\Word\Word_Serienbrief_erstellen.xaml)" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Modules\Word\Word_Serienbrief_erstellen.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Word_Serienbrief_erstellen - Invoke Workflow File (Modules\Word\Word_Serienbrief_erstellen.xaml)" sap:VirtualizedContainerService.HintSize="344,174.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Modules\Word\Word_Serienbrief_erstellen.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_Finaler_Ordner_Pfad">[str_Finaler_Ordner_Pfad]</InArgument>
                       <InArgument x:TypeArguments="x:Int32" x:Key="in_int_ExcelIndex">[int_excelIndex]</InArgument>
@@ -238,6 +242,7 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_Anrede2">[str_Anrede2]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_Ausschüttung">[str_Ausschuettung]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_Grund_der_Prämie_konkret_idR_genüg">[str_Grund_der_Praemie]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_str_neueAbteilung">[str_neueAbteilung]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -245,6 +250,31 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InvokeWorkflowFile>
+                  <FlowStep.Next>
+                    <FlowStep x:Name="__ReferenceID3">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">385,655</av:Point>
+                          <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Status_datei_erstellen - Invoke Workflow File (Modules\Excel\Status_datei_erstellen.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Modules\Excel\Status_datei_erstellen.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_str_Vorname">[str_vorname]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_str_Nachname">[str_nachname]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_str_neueAbteilung">[str_neueAbteilung]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_str_status">[str_status]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_str_OrgEinheit">[str_orgEinheit]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_str_outputFolderPath">[str_outputFolderPath]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:InvokeWorkflowFile>
+                    </FlowStep>
+                  </FlowStep.Next>
                 </FlowStep>
               </FlowStep.Next>
             </FlowStep>
@@ -255,5 +285,6 @@
     <x:Reference>__ReferenceID0</x:Reference>
     <x:Reference>__ReferenceID1</x:Reference>
     <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
   </Flowchart>
 </Activity>

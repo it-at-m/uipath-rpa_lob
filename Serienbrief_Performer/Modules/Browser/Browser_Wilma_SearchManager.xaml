@@ -13,7 +13,11 @@
     <x:Property Name="in_int_excelIndex" Type="InArgument(x:Int32)" />
     <x:Property Name="out_str_status" Type="OutArgument(x:String)" />
     <x:Property Name="in_str_direkteFuehrungskraft" Type="InArgument(x:String)" />
+    <x:Property Name="out_str_neueAbteilung" Type="InArgument(x:String)" />
   </x:Members>
+  <this:Browser_Wilma_SearchManager.out_str_neueAbteilung>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Browser_Wilma_SearchManager.out_str_neueAbteilung>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
@@ -140,7 +144,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Browser_Wilma_SearchManager" sap:VirtualizedContainerService.HintSize="1472,6943" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Browser_Wilma_SearchManager" sap:VirtualizedContainerService.HintSize="1653.6000000000001,10528" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="int_tmp_initialCounter" />
       <Variable x:TypeArguments="x:String" Name="str_tmp_firstName" />
@@ -153,8 +157,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1187,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Browser_Wilma_SearchManager Started&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="1187,114" sap2010:WorkflowViewState.IdRef="Assign_8">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1283.2,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Browser_Wilma_SearchManager Started&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="1283.2,113.6" sap2010:WorkflowViewState.IdRef="Assign_8">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[FailedFolderPath]</OutArgument>
       </Assign.To>
@@ -162,7 +166,7 @@
         <InArgument x:TypeArguments="x:String">[in_Config("rpa001_FailedFolderPath").ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1187,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="1283.2,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
       <ui:MultipleAssign.AssignOperations>
         <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
           <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
@@ -184,34 +188,36 @@
         </scg:List>
       </ui:MultipleAssign.AssignOperations>
     </ui:MultipleAssign>
-    <If Condition="[in_str_direkteFuehrungskraft = Nothing]" sap:VirtualizedContainerService.HintSize="1187,6290" sap2010:WorkflowViewState.IdRef="If_5">
+    <If Condition="[in_str_direkteFuehrungskraft = Nothing]" sap:VirtualizedContainerService.HintSize="1283.2,9871.2" sap2010:WorkflowViewState.IdRef="If_5">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="1153,5782" sap2010:WorkflowViewState.IdRef="Sequence_20">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="1249.6,9361.6" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Firefox: WiLMA | Telefonbuch" sap:VirtualizedContainerService.HintSize="1119,5722" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V2" WindowResize="Maximize">
+          <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Firefox: WiLMA | Telefonbuch" sap:VirtualizedContainerService.HintSize="1216,9301.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V2" WindowResize="Maximize">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1085,5442" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1182.4,9061.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Search Person" sap:VirtualizedContainerService.HintSize="1051,57" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Search Person komplett" sap:VirtualizedContainerService.HintSize="1148.8,100.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="0.5" DisplayName="Click 'Startseite'" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="0.5" DisplayName="Click 'Startseite'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_9" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="231, 352, 104, 22" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' type='' check:innerText='Startseite' /&gt;" Guid="44bfff1f-1c0a-4091-aad9-c8054f6f8c65" InformativeScreenshot="01aaec2c33d5085f38a34440a705cbfe.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                       </uix:NClick.Target>
@@ -226,7 +232,7 @@
                         </uix:VerifyExecutionOptions>
                       </uix:NClick.VerifyOptions>
                     </uix:NClick>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="0.5" DisplayName="Click 'Erweiterte Suche'" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="0.5" DisplayName="Click 'Erweiterte Suche'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://telefonbuch.muenchen.de/#/home" DesignTimeRectangle="252, 395, 129, 23" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Erweiterte Suche' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Erweiterte Suche' tag='SPAN' type='' class='' check:innerText='Erweiterte Suche' /&gt;" Guid="17119be8-f4da-4589-85ae-60e769fdcbd8" InformativeScreenshot="37d163d0dac75a4159f233804d2d7bf6.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                       </uix:NClick.Target>
@@ -241,7 +247,7 @@
                         </uix:VerifyExecutionOptions>
                       </uix:NClick.VerifyOptions>
                     </uix:NClick>
-                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,57" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_2">
                       <ui:CommentOut.Body>
                         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,337" sap2010:WorkflowViewState.IdRef="Sequence_17">
                           <sap:WorkflowViewStateService.ViewState>
@@ -273,12 +279,12 @@
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:CommentOut>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayBefore="0.5" DisplayName="Type Into 'INPUT mat-input-17'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Text="[in_str_LastName.Trim]" Version="V3">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayBefore="0.5" DisplayName="Type Into 'INPUT mat-input-17'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Text="[in_str_LastName.Trim]" Version="V3">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable BrowserURL="https://telefonbuch.muenchen.de/#/home?advSearch=true" DesignTimeRectangle="87, 346, 375, 25" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Nachname oder Mail' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mat-input-17' tag='INPUT' type='text' class='mat-input-element mat-form-field-autofill-control ng-tns-c86-18 ng-touched ng-pristine ng-valid cdk-text-field-autofill-monitored' placeholder='Mustermann' aaname='Nachname oder Mail' /&gt;" Guid="35e2e1de-9f2c-40e7-87ec-76fc8599f0dd" InformativeScreenshot="83f99a6bc4e50b34ff3d796edacbebf4.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                       </uix:NTypeInto.Target>
                     </uix:NTypeInto>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="0.5" DisplayName="Click 'Vorname'" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="0.5" DisplayName="Click 'Vorname'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_10" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://telefonbuch.muenchen.de/#/home?advSearch=true" DesignTimeRectangle="474, 351, 75, 25" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='MAT-LABEL' aaname='Vorname' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='MAT-LABEL' aaname='Vorname' type='' class='ng-tns-c86-33 ng-star-inserted' check:text='Vorname' /&gt;" Guid="aeabe26a-f297-4796-8aeb-d68530c470b1" InformativeScreenshot="0f414c308fa0a3f08e67e2ff4acb1b31.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                       </uix:NClick.Target>
@@ -293,12 +299,12 @@
                         </uix:VerifyExecutionOptions>
                       </uix:NClick.VerifyOptions>
                     </uix:NClick>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayBefore="0.5" DisplayName="Type Into 'INPUT mat-input-17'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Text="[in_str_FirstName.Trim]" Version="V3">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayBefore="0.5" DisplayName="Type Into 'INPUT mat-input-17'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Text="[in_str_FirstName.Trim]" Version="V3">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable BrowserURL="https://telefonbuch.muenchen.de/#/home?advSearch=true" DesignTimeRectangle="474, 351, 75, 25" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Vorname' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-form-field-label-37' tag='MAT-LABEL' type='' class='ng-tns-c86-19 ng-star-inserted' aaname='Vorname' check:innerText='Vorname' /&gt;" Guid="6f447494-70fc-4d86-9c4a-b693f5ba6d80" InformativeScreenshot="26970d6caf4953f9016f95b5907df962.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                       </uix:NTypeInto.Target>
                     </uix:NTypeInto>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="0.5" DisplayName="Click 'Organisationskürzel'" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="0.5" DisplayName="Click 'Organisationskürzel'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_11" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://telefonbuch.muenchen.de/#/home?advSearch=true" DesignTimeRectangle="87, 454, 166, 25" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='MAT-LABEL' aaname='Organisationskürzel' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='MAT-LABEL' aaname='Organisationskürzel' type='' class='ng-tns-c86-34 ng-star-inserted' check:text='Organisationskürzel' /&gt;" Guid="8170723e-7830-44d0-80a1-cde6a09018bc" InformativeScreenshot="b99efdc70fe49c93c096866232aff21a.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                       </uix:NClick.Target>
@@ -313,12 +319,12 @@
                         </uix:VerifyExecutionOptions>
                       </uix:NClick.VerifyOptions>
                     </uix:NClick>
-                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayBefore="0.5" DisplayName="Type Into 'INPUT mat-input-17'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Text="[in_str_Department.Trim]" Version="V3">
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayBefore="0.5" DisplayName="Type Into 'INPUT mat-input-17'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Text="[in_str_Department.Trim]" Version="V3">
                       <uix:NTypeInto.Target>
                         <uix:TargetAnchorable BrowserURL="https://telefonbuch.muenchen.de/#/home?advSearch=true" DesignTimeRectangle="87, 454, 166, 25" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Organisationskürzel' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-form-field-label-39' tag='MAT-LABEL' type='' class='ng-tns-c86-20 ng-star-inserted' aaname='Organisationskürzel' check:innerText='Organisationskürzel' /&gt;" Guid="3e5dacea-747b-4fd7-b56b-48ee90b1dff2" InformativeScreenshot="b99efdc70fe49c93c096866232aff21a.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                       </uix:NTypeInto.Target>
                     </uix:NTypeInto>
-                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Suchen'" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                    <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Suchen'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_7" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                       <uix:NClick.Target>
                         <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="89, 521, 126, 50" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-label='Suche' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl aria-label='Suche' tag='BUTTON' type='' class='mat-focus-indicator ng-tns-c411-0 mat-button mat-button-base' aaname='Suchen' check:innerText='Suchen' /&gt;" Guid="3c8a9942-69f7-4773-a4dd-ca6a760e68b2" InformativeScreenshot="2642fd2dae30743b5e0921aedfff101e.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                       </uix:NClick.Target>
@@ -333,7 +339,7 @@
                         </uix:VerifyExecutionOptions>
                       </uix:NClick.VerifyOptions>
                     </uix:NClick>
-                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,50" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,49.6" sap2010:WorkflowViewState.IdRef="CommentOut_1">
                       <ui:CommentOut.Body>
                         <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,298" sap2010:WorkflowViewState.IdRef="Sequence_16">
                           <sap:WorkflowViewStateService.ViewState>
@@ -363,7 +369,7 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </ui:CommentOut>
                   </Sequence>
-                  <Sequence DisplayName="Open Department" sap:VirtualizedContainerService.HintSize="1051,2258" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Open Department" sap:VirtualizedContainerService.HintSize="1148.8,2263.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_personSearchTable" />
                     </Sequence.Variables>
@@ -372,20 +378,21 @@
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dt_personSearchTable]" DelayBefore="3" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Nachname' ReferenceIdx='0' Name='Nachname'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Vorname' ReferenceIdx='1' Name='Vorname'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Mail' ReferenceIdx='2' Name='Mail'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Mail Url' ReferenceIdx='3' Name='Mail Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Telefon' ReferenceIdx='4' Name='Telefon'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Telefon Url' ReferenceIdx='5' Name='Telefon Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Abteilung' ReferenceIdx='6' Name='Abteilung'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Funktion' ReferenceIdx='7' Name='Funktion'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='8' Name='Column-6'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Nachname' attr='fulltext' /&gt;&lt;column name='Vorname' attr='fulltext' /&gt;&lt;column name='Mail' attr='fulltext' name2='Mail Url' attr2='href' /&gt;&lt;column name='Telefon' attr='fulltext' name2='Telefon Url' attr2='href' /&gt;&lt;column name='Abteilung' attr='fulltext' /&gt;&lt;column name='Funktion' attr='fulltext' /&gt;&lt;column name='Column-6' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="1017,189" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                    <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dt_personSearchTable]" DelayBefore="3" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Nachname' ReferenceIdx='0' Name='Nachname'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Vorname' ReferenceIdx='1' Name='Vorname'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Mail' ReferenceIdx='2' Name='Mail'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Mail Url' ReferenceIdx='3' Name='Mail Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Telefon' ReferenceIdx='4' Name='Telefon'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Telefon Url' ReferenceIdx='5' Name='Telefon Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Abteilung' ReferenceIdx='6' Name='Abteilung'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Funktion' ReferenceIdx='7' Name='Funktion'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='8' Name='Column-6'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Nachname' attr='fulltext' /&gt;&lt;column name='Vorname' attr='fulltext' /&gt;&lt;column name='Mail' attr='fulltext' name2='Mail Url' attr2='href' /&gt;&lt;column name='Telefon' attr='fulltext' name2='Telefon Url' attr2='href' /&gt;&lt;column name='Abteilung' attr='fulltext' /&gt;&lt;column name='Funktion' attr='fulltext' /&gt;&lt;column name='Column-6' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="1014.4,189.6" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                       <uix:NExtractData.Target>
                         <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="69, 685, 1669, 120" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="5d392ff8-d704-4605-a607-8cc047d03d5b" InformativeScreenshot="4cc3ddc1c1fe7c870b2a807adbaa3e59.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" WaitForReadyArgument="Complete" />
                       </uix:NExtractData.Target>
                     </uix:NExtractData>
-                    <If Condition="[Not(dt_personSearchTable.Rows.Count = 1)]" sap:VirtualizedContainerService.HintSize="1017,1075" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If Condition="[dt_personSearchTable.Rows(0)(0).ToString.Contains(&quot;Keine Suchergebnisse für&quot;) OrElse dt_personSearchTable.Rows.Count &gt; 1]" sap:VirtualizedContainerService.HintSize="1014.4,1077.6" sap2010:WorkflowViewState.IdRef="If_1">
                       <If.Then>
-                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,679" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="467.2,680" sap2010:WorkflowViewState.IdRef="Sequence_5">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Startseite'" sap:VirtualizedContainerService.HintSize="434,225" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Startseite'" sap:VirtualizedContainerService.HintSize="433.6,225.6" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="231, 352, 104, 22" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' type='' check:innerText='Startseite' /&gt;" Guid="44bfff1f-1c0a-4091-aad9-c8054f6f8c65" InformativeScreenshot="01aaec2c33d5085f38a34440a705cbfe.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                             </uix:NClick.Target>
@@ -400,7 +407,7 @@
                               </uix:VerifyExecutionOptions>
                             </uix:NClick.VerifyOptions>
                           </uix:NClick>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_3">
+                          <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_3">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:Boolean">[out_bool_sucheFehlgeschlagen]</OutArgument>
                             </Assign.To>
@@ -408,47 +415,47 @@
                               <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_7">
+                          <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_7">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[out_str_status]</OutArgument>
                             </Assign.To>
                             <Assign.Value>
-                              <InArgument x:TypeArguments="x:String">["Fehler in der Telefonbuch suche: " + dt_personSearchTable.Rows.Count.ToString + " Einträge im Telefonbuch"]</InArgument>
+                              <InArgument x:TypeArguments="x:String">Fehler in der Telefonbuch Suche mit Abteilung: 0 oder mehrere Einträge im Telefonbuch</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,166" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Fehler: Excel Zeile: &quot; + in_int_excelIndex.ToString + &quot; hat &quot; + dt_personSearchTable.Rows.Count.ToString + &quot; Einträge im Telefonbuch&quot;]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,167.2" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Fehler in der Telefonbuch Suche mit Abteilung: 0 oder mehrere Einträge im Telefonbuch&quot;]" />
                         </Sequence>
                       </If.Then>
                       <If.Else>
-                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,226" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,227.2" sap2010:WorkflowViewState.IdRef="Sequence_6">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,166" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Telefonbuch hat &quot;+ dt_personSearchTable.Rows.Count.ToString + &quot; Eintrag für Excel Zeile &quot; &amp;  in_int_excelIndex.ToString]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,167.2" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Suche mit Abteilung: Telefonbuch hat &quot;+ dt_personSearchTable.Rows.Count.ToString + &quot; Eintrag für Excel Zeile &quot; &amp;  in_int_excelIndex.ToString]" />
                         </Sequence>
                       </If.Else>
                     </If>
-                    <uix:NCheckState DisplayName="Check App State 'ITM-KM51'" sap:VirtualizedContainerService.HintSize="1017,900" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Timeout="10" Version="V3">
+                    <uix:NCheckState DisplayName="Check App State 'ITM-KM51'" sap:VirtualizedContainerService.HintSize="1014.4,902.4" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Timeout="10" Version="V3">
                       <uix:NCheckState.IfExists>
-                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,658" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="449.6,659.2" sap2010:WorkflowViewState.IdRef="Sequence_14">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NGetText DelayBefore="1" DisplayName="Get Text 'Hans-Martin'" sap:VirtualizedContainerService.HintSize="416,189" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" TextString="[str_tmp_firstName]" Version="V3">
+                          <uix:NGetText DelayBefore="1" DisplayName="Get Text 'Hans-Martin'" sap:VirtualizedContainerService.HintSize="416,189.6" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" TextString="[str_tmp_firstName]" Version="V3">
                             <uix:NGetText.Target>
                               <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="355, 605, 140, 40" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' colName='Vorname' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' colName='Vorname' class='mat-cell cdk-cell cdk-column-FirstName mat-column-FirstName ng-star-inserted' /&gt;" Guid="a8d7f10b-5365-40b2-b25d-3e25fe1c70e2" ImageBase64="" InformativeScreenshot="141665b13b1afe9e9451911f54711782.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                             </uix:NGetText.Target>
                           </uix:NGetText>
-                          <uix:NGetText DelayBefore="1" DisplayName="Get Text 'Hans-Martin'" sap:VirtualizedContainerService.HintSize="416,189" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" TextString="[str_tmp_lastName]" Version="V3">
+                          <uix:NGetText DelayBefore="1" DisplayName="Get Text 'Hans-Martin'" sap:VirtualizedContainerService.HintSize="416,189.6" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" TextString="[str_tmp_lastName]" Version="V3">
                             <uix:NGetText.Target>
                               <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="216, 605, 139, 40" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' colName='Nachname' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' colName='Nachname' class='mat-cell cdk-cell cdk-column-LastName mat-column-LastName ng-star-inserted' /&gt;" Guid="49b5adbb-65be-4820-808c-0441a3b3e33b" ImageBase64="" InformativeScreenshot="19d3f623af50dc554773a00e51dc413c.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                             </uix:NGetText.Target>
                           </uix:NGetText>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'ITM-KM44'" sap:VirtualizedContainerService.HintSize="416,218" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'ITM-KM44'" sap:VirtualizedContainerService.HintSize="416,218.4" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="981, 758, 77, 22" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='B' colName='Abteilung' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' colName='Abteilung' class='' aaname='ITM-KM44' check:text='ITM-KM44' /&gt;" Guid="5696f2fa-98a2-4f5c-8d0a-772c4bddf126" InformativeScreenshot="c00a837919478b9542fb7d02ba6b6762.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                             </uix:NClick.Target>
@@ -466,13 +473,13 @@
                         </Sequence>
                       </uix:NCheckState.IfExists>
                       <uix:NCheckState.IfNotExists>
-                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="513,634" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="512,636" sap2010:WorkflowViewState.IdRef="Sequence_15">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Startseite'" sap:VirtualizedContainerService.HintSize="479,225" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Startseite'" sap:VirtualizedContainerService.HintSize="478.4,225.6" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="231, 352, 104, 22" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' type='' check:innerText='Startseite' /&gt;" Guid="44bfff1f-1c0a-4091-aad9-c8054f6f8c65" InformativeScreenshot="01aaec2c33d5085f38a34440a705cbfe.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                             </uix:NClick.Target>
@@ -487,7 +494,7 @@
                               </uix:VerifyExecutionOptions>
                             </uix:NClick.VerifyOptions>
                           </uix:NClick>
-                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+                          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
                             <ui:MultipleAssign.AssignOperations>
                               <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                 <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
@@ -503,13 +510,13 @@
                                     <OutArgument x:TypeArguments="x:String">[out_str_status]</OutArgument>
                                   </ui:AssignOperation.To>
                                   <ui:AssignOperation.Value>
-                                    <InArgument x:TypeArguments="x:String">Mitarbeiter konnte im Telefonbuch nicht geöffnet werden</InArgument>
+                                    <InArgument x:TypeArguments="x:String">Suche mit Abteilung: Mitarbeiter konnte im Telefonbuch nicht geöffnet werden</InArgument>
                                   </ui:AssignOperation.Value>
                                 </ui:AssignOperation>
                               </scg:List>
                             </ui:MultipleAssign.AssignOperations>
                           </ui:MultipleAssign>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="479,168" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Fehler in der Telefonbuchsuche&quot;]" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478.4,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Suche mit Abteilung: Mitarbeiter konnte im Telefonbuch nicht geöffnet werden&quot;]" />
                         </Sequence>
                       </uix:NCheckState.IfNotExists>
                       <uix:NCheckState.Target>
@@ -523,25 +530,645 @@
                       </sap:WorkflowViewStateService.ViewState>
                     </uix:NCheckState>
                   </Sequence>
-                  <If Condition="[out_bool_sucheFehlgeschlagen]" sap:VirtualizedContainerService.HintSize="1051,3067" sap2010:WorkflowViewState.IdRef="If_4">
+                  <If Condition="[out_bool_sucheFehlgeschlagen]" sap:VirtualizedContainerService.HintSize="1148.8,6636" sap2010:WorkflowViewState.IdRef="If_4">
                     <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="1115.2,3091.2" sap2010:WorkflowViewState.IdRef="Sequence_18">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
+                        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1081.6,3031.2" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Sequence DisplayName="Search Person ohne Org. Einheit" sap:VirtualizedContainerService.HintSize="1048,100.8" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="0.5" DisplayName="Click 'Startseite'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_14" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="231, 352, 104, 22" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' type='' check:innerText='Startseite' /&gt;" Guid="44bfff1f-1c0a-4091-aad9-c8054f6f8c65" InformativeScreenshot="01aaec2c33d5085f38a34440a705cbfe.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                              <uix:NClick.VerifyOptions>
+                                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                  <uix:VerifyExecutionOptions.Retry>
+                                    <InArgument x:TypeArguments="x:Boolean" />
+                                  </uix:VerifyExecutionOptions.Retry>
+                                  <uix:VerifyExecutionOptions.Timeout>
+                                    <InArgument x:TypeArguments="x:Double" />
+                                  </uix:VerifyExecutionOptions.Timeout>
+                                </uix:VerifyExecutionOptions>
+                              </uix:NClick.VerifyOptions>
+                            </uix:NClick>
+                            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="0.5" DisplayName="Click 'Erweiterte Suche'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_15" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://telefonbuch.muenchen.de/#/home" DesignTimeRectangle="252, 395, 129, 23" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Erweiterte Suche' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Erweiterte Suche' tag='SPAN' type='' class='' check:innerText='Erweiterte Suche' /&gt;" Guid="17119be8-f4da-4589-85ae-60e769fdcbd8" InformativeScreenshot="37d163d0dac75a4159f233804d2d7bf6.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                              <uix:NClick.VerifyOptions>
+                                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                  <uix:VerifyExecutionOptions.Retry>
+                                    <InArgument x:TypeArguments="x:Boolean" />
+                                  </uix:VerifyExecutionOptions.Retry>
+                                  <uix:VerifyExecutionOptions.Timeout>
+                                    <InArgument x:TypeArguments="x:Double" />
+                                  </uix:VerifyExecutionOptions.Timeout>
+                                </uix:VerifyExecutionOptions>
+                              </uix:NClick.VerifyOptions>
+                            </uix:NClick>
+                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,56.8" sap2010:WorkflowViewState.IdRef="CommentOut_4">
+                              <ui:CommentOut.Body>
+                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,337.6" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayAfter="1" DelayBefore="1" DisplayName="Type Into 'INPUT mat-input-0'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="382.4,277.6" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Text="[in_str_FirstName + &quot; &quot; + in_str_LastName + &quot; &quot; + in_str_Department]" Version="V3">
+                                    <uix:NTypeInto.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="104, 432, 1549, 25" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='mat-input-0' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl id='mat-input-0' tag='INPUT' type='text' class='mat-input-element mat-form-field-autofill-control ng-tns-c86-1 cdk-text-field-autofill-monitored ng-touched ng-dirty ng-valid' placeholder='z.B. max mustermann, max ibs5, mustermann por, max.mustermann' aaname='Name, Kurzbezeichnung, Telefonnummer, ...' /&gt;" Guid="fec22759-2f2b-4962-b3f3-b65db99174b4" InformativeScreenshot="7ff186849876d03a1177904455ab847b.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" WaitForReadyArgument="Interactive" />
+                                    </uix:NTypeInto.Target>
+                                    <uix:NTypeInto.VerifyOptions>
+                                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                          <InArgument x:TypeArguments="x:Boolean" />
+                                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                          <InArgument x:TypeArguments="x:Double" />
+                                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                      </uix:VerifyExecutionTypeIntoOptions>
+                                    </uix:NTypeInto.VerifyOptions>
+                                  </uix:NTypeInto>
+                                </Sequence>
+                              </ui:CommentOut.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:CommentOut>
+                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayBefore="0.5" DisplayName="Type Into 'INPUT mat-input-17'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Text="[in_str_LastName.Trim]" Version="V3">
+                              <uix:NTypeInto.Target>
+                                <uix:TargetAnchorable BrowserURL="https://telefonbuch.muenchen.de/#/home?advSearch=true" DesignTimeRectangle="87, 346, 375, 25" DesignTimeScaleFactor="1.25" ElementType="InputBox" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Nachname oder Mail' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mat-input-17' tag='INPUT' type='text' class='mat-input-element mat-form-field-autofill-control ng-tns-c86-18 ng-touched ng-pristine ng-valid cdk-text-field-autofill-monitored' placeholder='Mustermann' aaname='Nachname oder Mail' /&gt;" Guid="35e2e1de-9f2c-40e7-87ec-76fc8599f0dd" InformativeScreenshot="83f99a6bc4e50b34ff3d796edacbebf4.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                              </uix:NTypeInto.Target>
+                            </uix:NTypeInto>
+                            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="0.5" DisplayName="Click 'Vorname'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_16" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://telefonbuch.muenchen.de/#/home?advSearch=true" DesignTimeRectangle="474, 351, 75, 25" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='MAT-LABEL' aaname='Vorname' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='MAT-LABEL' aaname='Vorname' type='' class='ng-tns-c86-33 ng-star-inserted' check:text='Vorname' /&gt;" Guid="aeabe26a-f297-4796-8aeb-d68530c470b1" InformativeScreenshot="0f414c308fa0a3f08e67e2ff4acb1b31.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                              <uix:NClick.VerifyOptions>
+                                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                  <uix:VerifyExecutionOptions.Retry>
+                                    <InArgument x:TypeArguments="x:Boolean" />
+                                  </uix:VerifyExecutionOptions.Retry>
+                                  <uix:VerifyExecutionOptions.Timeout>
+                                    <InArgument x:TypeArguments="x:Double" />
+                                  </uix:VerifyExecutionOptions.Timeout>
+                                </uix:VerifyExecutionOptions>
+                              </uix:NClick.VerifyOptions>
+                            </uix:NClick>
+                            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DelayBefore="0.5" DisplayName="Type Into 'INPUT mat-input-17'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250.4" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Text="[in_str_FirstName.Trim]" Version="V3">
+                              <uix:NTypeInto.Target>
+                                <uix:TargetAnchorable BrowserURL="https://telefonbuch.muenchen.de/#/home?advSearch=true" DesignTimeRectangle="474, 351, 75, 25" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='INPUT' aaname='Vorname' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='mat-form-field-label-37' tag='MAT-LABEL' type='' class='ng-tns-c86-19 ng-star-inserted' aaname='Vorname' check:innerText='Vorname' /&gt;" Guid="6f447494-70fc-4d86-9c4a-b693f5ba6d80" InformativeScreenshot="26970d6caf4953f9016f95b5907df962.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                              </uix:NTypeInto.Target>
+                            </uix:NTypeInto>
+                            <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Suchen'" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="NClick_13" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                              <uix:NClick.Target>
+                                <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="89, 521, 126, 50" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl aria-label='Suche' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl aria-label='Suche' tag='BUTTON' type='' class='mat-focus-indicator ng-tns-c411-0 mat-button mat-button-base' aaname='Suchen' check:innerText='Suchen' /&gt;" Guid="3c8a9942-69f7-4773-a4dd-ca6a760e68b2" InformativeScreenshot="2642fd2dae30743b5e0921aedfff101e.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                              </uix:NClick.Target>
+                              <uix:NClick.VerifyOptions>
+                                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                  <uix:VerifyExecutionOptions.Retry>
+                                    <InArgument x:TypeArguments="x:Boolean" />
+                                  </uix:VerifyExecutionOptions.Retry>
+                                  <uix:VerifyExecutionOptions.Timeout>
+                                    <InArgument x:TypeArguments="x:Double" />
+                                  </uix:VerifyExecutionOptions.Timeout>
+                                </uix:VerifyExecutionOptions>
+                              </uix:NClick.VerifyOptions>
+                            </uix:NClick>
+                            <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="416,48" sap2010:WorkflowViewState.IdRef="CommentOut_3">
+                              <ui:CommentOut.Body>
+                                <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,297.6" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBefore="0.5" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="382.4,237.6" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" Shortcuts="[d(hk)][k(enter)][u(hk)]" Version="V3">
+                                    <uix:NKeyboardShortcuts.VerifyOptions>
+                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                        <uix:VerifyExecutionOptions.Retry>
+                                          <InArgument x:TypeArguments="x:Boolean" />
+                                        </uix:VerifyExecutionOptions.Retry>
+                                        <uix:VerifyExecutionOptions.Timeout>
+                                          <InArgument x:TypeArguments="x:Double" />
+                                        </uix:VerifyExecutionOptions.Timeout>
+                                      </uix:VerifyExecutionOptions>
+                                    </uix:NKeyboardShortcuts.VerifyOptions>
+                                  </uix:NKeyboardShortcuts>
+                                </Sequence>
+                              </ui:CommentOut.Body>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </ui:CommentOut>
+                          </Sequence>
+                          <Sequence DisplayName="Open Department" sap:VirtualizedContainerService.HintSize="1048,2527.2" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                            <Sequence.Variables>
+                              <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_personSearchTable" />
+                            </Sequence.Variables>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dt_personSearchTable]" DelayBefore="3" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Nachname' ReferenceIdx='0' Name='Nachname'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Vorname' ReferenceIdx='1' Name='Vorname'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Mail' ReferenceIdx='2' Name='Mail'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Mail Url' ReferenceIdx='3' Name='Mail Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Telefon' ReferenceIdx='4' Name='Telefon'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Telefon Url' ReferenceIdx='5' Name='Telefon Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Abteilung' ReferenceIdx='6' Name='Abteilung'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Funktion' ReferenceIdx='7' Name='Funktion'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-6' ReferenceIdx='8' Name='Column-6'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Nachname' attr='fulltext' /&gt;&lt;column name='Vorname' attr='fulltext' /&gt;&lt;column name='Mail' attr='fulltext' name2='Mail Url' attr2='href' /&gt;&lt;column name='Telefon' attr='fulltext' name2='Telefon Url' attr2='href' /&gt;&lt;column name='Abteilung' attr='fulltext' /&gt;&lt;column name='Funktion' attr='fulltext' /&gt;&lt;column name='Column-6' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="1014.4,189.6" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                              <uix:NExtractData.Target>
+                                <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="69, 685, 1669, 120" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="5d392ff8-d704-4605-a607-8cc047d03d5b" InformativeScreenshot="4cc3ddc1c1fe7c870b2a807adbaa3e59.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" WaitForReadyArgument="Complete" />
+                              </uix:NExtractData.Target>
+                            </uix:NExtractData>
+                            <If Condition="[dt_personSearchTable.Rows(0)(0).ToString.Contains(&quot;Keine Suchergebnisse für&quot;) OrElse dt_personSearchTable.Rows.Count &gt; 1]" sap:VirtualizedContainerService.HintSize="1014.4,1304.8" sap2010:WorkflowViewState.IdRef="If_6">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <If.Then>
+                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="467.2,680" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Startseite'" sap:VirtualizedContainerService.HintSize="433.6,225.6" sap2010:WorkflowViewState.IdRef="NClick_17" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                                    <uix:NClick.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="231, 352, 104, 22" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' type='' check:innerText='Startseite' /&gt;" Guid="44bfff1f-1c0a-4091-aad9-c8054f6f8c65" InformativeScreenshot="01aaec2c33d5085f38a34440a705cbfe.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                    </uix:NClick.Target>
+                                    <uix:NClick.VerifyOptions>
+                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                        <uix:VerifyExecutionOptions.Retry>
+                                          <InArgument x:TypeArguments="x:Boolean" />
+                                        </uix:VerifyExecutionOptions.Retry>
+                                        <uix:VerifyExecutionOptions.Timeout>
+                                          <InArgument x:TypeArguments="x:Double" />
+                                        </uix:VerifyExecutionOptions.Timeout>
+                                      </uix:VerifyExecutionOptions>
+                                    </uix:NClick.VerifyOptions>
+                                  </uix:NClick>
+                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Boolean">[out_bool_sucheFehlgeschlagen]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[out_str_status]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">Fehler in der Telefonbuch Suche OHNE Abteilung: 0 oder mehrere Einträge im Telefonbuch</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,167.2" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Fehler in der Telefonbuch Suche OHNE Abteilung: 0 oder mehrere Einträge im Telefonbuch&quot;]" />
+                                </Sequence>
+                              </If.Then>
+                              <If.Else>
+                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="467.2,454.4" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_13">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[out_str_neueAbteilung]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">[dt_personSearchTable.rows(0)("Abteilung").ToString]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_14">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:Boolean">[out_bool_sucheFehlgeschlagen]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,167.2" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Telefonbuch hat &quot;+ dt_personSearchTable.Rows.Count.ToString + &quot; Eintrag für Excel Zeile &quot; &amp;  in_int_excelIndex.ToString &amp; &quot; bei Suche ohne Abteilung&quot;]" />
+                                </Sequence>
+                              </If.Else>
+                            </If>
+                            <uix:NCheckState DisplayName="Check App State 'ITM-KM51'" sap:VirtualizedContainerService.HintSize="1014.4,940.8" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Timeout="10" Version="V3">
+                              <uix:NCheckState.IfExists>
+                                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="449.6,659.2" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <uix:NGetText DelayBefore="1" DisplayName="Get Text 'Hans-Martin'" sap:VirtualizedContainerService.HintSize="416,189.6" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" TextString="[str_tmp_firstName]" Version="V3">
+                                    <uix:NGetText.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="355, 605, 140, 40" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' colName='Vorname' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' colName='Vorname' class='mat-cell cdk-cell cdk-column-FirstName mat-column-FirstName ng-star-inserted' /&gt;" Guid="a8d7f10b-5365-40b2-b25d-3e25fe1c70e2" ImageBase64="" InformativeScreenshot="141665b13b1afe9e9451911f54711782.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                    </uix:NGetText.Target>
+                                  </uix:NGetText>
+                                  <uix:NGetText DelayBefore="1" DisplayName="Get Text 'Hans-Martin'" sap:VirtualizedContainerService.HintSize="416,189.6" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" TextString="[str_tmp_lastName]" Version="V3">
+                                    <uix:NGetText.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="216, 605, 139, 40" DesignTimeScaleFactor="1" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' colName='Nachname' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' colName='Nachname' class='mat-cell cdk-cell cdk-column-LastName mat-column-LastName ng-star-inserted' /&gt;" Guid="49b5adbb-65be-4820-808c-0441a3b3e33b" ImageBase64="" InformativeScreenshot="19d3f623af50dc554773a00e51dc413c.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                    </uix:NGetText.Target>
+                                  </uix:NGetText>
+                                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'ITM-KM44'" sap:VirtualizedContainerService.HintSize="416,218.4" sap2010:WorkflowViewState.IdRef="NClick_18" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                                    <uix:NClick.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="981, 758, 77, 22" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='B' colName='Abteilung' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' colName='Abteilung' class='' aaname='ITM-KM44' check:text='ITM-KM44' /&gt;" Guid="5696f2fa-98a2-4f5c-8d0a-772c4bddf126" InformativeScreenshot="c00a837919478b9542fb7d02ba6b6762.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                    </uix:NClick.Target>
+                                    <uix:NClick.VerifyOptions>
+                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                        <uix:VerifyExecutionOptions.Retry>
+                                          <InArgument x:TypeArguments="x:Boolean" />
+                                        </uix:VerifyExecutionOptions.Retry>
+                                        <uix:VerifyExecutionOptions.Timeout>
+                                          <InArgument x:TypeArguments="x:Double" />
+                                        </uix:VerifyExecutionOptions.Timeout>
+                                      </uix:VerifyExecutionOptions>
+                                    </uix:NClick.VerifyOptions>
+                                  </uix:NClick>
+                                </Sequence>
+                              </uix:NCheckState.IfExists>
+                              <uix:NCheckState.IfNotExists>
+                                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="512,636" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Startseite'" sap:VirtualizedContainerService.HintSize="478.4,225.6" sap2010:WorkflowViewState.IdRef="NClick_19" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                                    <uix:NClick.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="231, 352, 104, 22" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' type='' check:innerText='Startseite' /&gt;" Guid="44bfff1f-1c0a-4091-aad9-c8054f6f8c65" InformativeScreenshot="01aaec2c33d5085f38a34440a705cbfe.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                    </uix:NClick.Target>
+                                    <uix:NClick.VerifyOptions>
+                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                        <uix:VerifyExecutionOptions.Retry>
+                                          <InArgument x:TypeArguments="x:Boolean" />
+                                        </uix:VerifyExecutionOptions.Retry>
+                                        <uix:VerifyExecutionOptions.Timeout>
+                                          <InArgument x:TypeArguments="x:Double" />
+                                        </uix:VerifyExecutionOptions.Timeout>
+                                      </uix:VerifyExecutionOptions>
+                                    </uix:NClick.VerifyOptions>
+                                  </uix:NClick>
+                                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+                                    <ui:MultipleAssign.AssignOperations>
+                                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:Boolean">[out_bool_sucheFehlgeschlagen]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                                          <ui:AssignOperation.To>
+                                            <OutArgument x:TypeArguments="x:String">[out_str_status]</OutArgument>
+                                          </ui:AssignOperation.To>
+                                          <ui:AssignOperation.Value>
+                                            <InArgument x:TypeArguments="x:String">Suche OHNE Abteilung: Mitarbeiter konnte im Telefonbuch nicht geöffnet werden</InArgument>
+                                          </ui:AssignOperation.Value>
+                                        </ui:AssignOperation>
+                                      </scg:List>
+                                    </ui:MultipleAssign.AssignOperations>
+                                  </ui:MultipleAssign>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478.4,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Mitarbeiter konnte im Telefonbuch nicht geöffnet werden&quot;]" />
+                                </Sequence>
+                              </uix:NCheckState.IfNotExists>
+                              <uix:NCheckState.Target>
+                                <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="980, 623, 76, 22" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='B' colName='Abteilung' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='B' class='' aaname='ITM-KM51' check:text='ITM-KM51' /&gt;" Guid="1af7e5c5-7831-46a8-9bf2-5ce254902b51" InformativeScreenshot="c9203bba1ed752d30aef91cbccc10940.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                              </uix:NCheckState.Target>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </uix:NCheckState>
+                          </Sequence>
+                          <If Condition="[out_bool_sucheFehlgeschlagen]" sap:VirtualizedContainerService.HintSize="1048,320" sap2010:WorkflowViewState.IdRef="If_9">
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89.6" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,68.8" sap2010:WorkflowViewState.IdRef="Sequence_39">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_8">
+                                  <ui:MultipleAssign.AssignOperations>
+                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[int_tmp_initialCounter]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:Boolean">[bool_ManagerGefunden]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                    </scg:List>
+                                  </ui:MultipleAssign.AssignOperations>
+                                </ui:MultipleAssign>
+                                <Sequence DisplayName="Search Manager" sap:VirtualizedContainerService.HintSize="478.4,100.8" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="x:String" Name="str_tmp_FirstNameManager" />
+                                    <Variable x:TypeArguments="x:String" Name="str_tmp_LastNameManager" />
+                                    <Variable x:TypeArguments="x:String" Name="str_tmp_fullNameManager" />
+                                    <Variable x:TypeArguments="x:String" Name="str_fullNameEmployee" />
+                                  </Sequence.Variables>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[bool_ManagerGefunden = False]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="612.8,1994.4" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+                                    <ui:InterruptibleDoWhile.Body>
+                                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="579.2,1856.8" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <If Condition="[int_tmp_initialCounter = 1]" sap:VirtualizedContainerService.HintSize="545.6,612" sap2010:WorkflowViewState.IdRef="If_7">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If.Then>
+                                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,108" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,48" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Iteration: &quot; + int_tmp_initialCounter.ToString]">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:LogMessage>
+                                            </Sequence>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,333.6" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Iteration: &quot; + int_tmp_initialCounter.ToString]">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:LogMessage>
+                                              <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'ITM-KM4'" sap:VirtualizedContainerService.HintSize="382.4,216.8" sap2010:WorkflowViewState.IdRef="NClick_20" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                                                <uix:NClick.Target>
+                                                  <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="1198, 573, 77, 25" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='STRONG' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='STRONG' type='' class='' aaname='ITM-KM4' check:text='ITM-KM4' /&gt;" Guid="2c8161a1-0056-4bf6-acc5-1dbf34d3e9ea" InformativeScreenshot="8fabc11a8d0388a0d4e71fe60cbb5931.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                                </uix:NClick.Target>
+                                                <uix:NClick.VerifyOptions>
+                                                  <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                                    <uix:VerifyExecutionOptions.Retry>
+                                                      <InArgument x:TypeArguments="x:Boolean" />
+                                                    </uix:VerifyExecutionOptions.Retry>
+                                                    <uix:VerifyExecutionOptions.Timeout>
+                                                      <InArgument x:TypeArguments="x:Double" />
+                                                    </uix:VerifyExecutionOptions.Timeout>
+                                                  </uix:VerifyExecutionOptions>
+                                                </uix:NClick.VerifyOptions>
+                                              </uix:NClick>
+                                            </Sequence>
+                                          </If.Else>
+                                        </If>
+                                        <uix:NGetText DelayBefore="1" DisplayName="Get Text 'First Name'" sap:VirtualizedContainerService.HintSize="545.6,189.6" sap2010:WorkflowViewState.IdRef="NGetText_8" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" TextString="[str_tmp_FirstNameManager]" Version="V3">
+                                          <uix:NGetText.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="737, 688, 250, 50" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='TD' colName='Vorname' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' colName='Vorname' class='' /&gt;" Guid="a6358b99-d215-455b-8864-772d7283c05d" ImageBase64="" InformativeScreenshot="2866da0ec827e6265896defdd4b103ef.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                          </uix:NGetText.Target>
+                                        </uix:NGetText>
+                                        <uix:NGetText DelayBefore="1" DisplayName="Get Text 'Last Name'" sap:VirtualizedContainerService.HintSize="545.6,189.6" sap2010:WorkflowViewState.IdRef="NGetText_9" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" TextString="[str_tmp_LastNameManager]" Version="V3">
+                                          <uix:NGetText.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="487, 688, 250, 50" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='TD' colName='Nachname' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' colName='Nachname' class='' /&gt;" Guid="681a4da5-92c1-4c13-b2fc-8b333b0a1ef8" ImageBase64="" InformativeScreenshot="48b935943187d73593ddc87ea841423c.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                          </uix:NGetText.Target>
+                                        </uix:NGetText>
+                                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="545.6,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+                                          <ui:MultipleAssign.AssignOperations>
+                                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:String">[str_tmp_fullNameManager]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:String">[str_tmp_FirstNameManager.Trim.ToUpper + " " + str_tmp_LastNameManager.Trim.ToUpper]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                                                <ui:AssignOperation.To>
+                                                  <OutArgument x:TypeArguments="x:String">[str_fullNameEmployee]</OutArgument>
+                                                </ui:AssignOperation.To>
+                                                <ui:AssignOperation.Value>
+                                                  <InArgument x:TypeArguments="x:String">[str_tmp_firstName.Trim.ToUpper + " " + str_tmp_lastName.Trim.ToUpper]</InArgument>
+                                                </ui:AssignOperation.Value>
+                                              </ui:AssignOperation>
+                                            </scg:List>
+                                          </ui:MultipleAssign.AssignOperations>
+                                        </ui:MultipleAssign>
+                                        <If Condition="[str_fullNameEmployee = str_tmp_fullNameManager]" sap:VirtualizedContainerService.HintSize="545.6,625.6" sap2010:WorkflowViewState.IdRef="If_8">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <If.Then>
+                                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512,200.8" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,140.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
+                                                <ui:MultipleAssign.AssignOperations>
+                                                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                                                      <ui:AssignOperation.To>
+                                                        <OutArgument x:TypeArguments="x:Int32">[int_tmp_initialCounter]</OutArgument>
+                                                      </ui:AssignOperation.To>
+                                                      <ui:AssignOperation.Value>
+                                                        <InArgument x:TypeArguments="x:Int32">[int_tmp_initialCounter + 1]</InArgument>
+                                                      </ui:AssignOperation.Value>
+                                                    </ui:AssignOperation>
+                                                  </scg:List>
+                                                </ui:MultipleAssign.AssignOperations>
+                                              </ui:MultipleAssign>
+                                            </Sequence>
+                                          </If.Then>
+                                          <If.Else>
+                                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512,263.2" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,203.2" sap2010:WorkflowViewState.IdRef="MultipleAssign_11">
+                                                <ui:MultipleAssign.AssignOperations>
+                                                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                                                      <ui:AssignOperation.To>
+                                                        <OutArgument x:TypeArguments="x:String">[out_str_ManagerFirstName]</OutArgument>
+                                                      </ui:AssignOperation.To>
+                                                      <ui:AssignOperation.Value>
+                                                        <InArgument x:TypeArguments="x:String">[str_tmp_FirstNameManager.Trim]</InArgument>
+                                                      </ui:AssignOperation.Value>
+                                                    </ui:AssignOperation>
+                                                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+                                                      <ui:AssignOperation.To>
+                                                        <OutArgument x:TypeArguments="x:String">[out_str_ManagerLastName]</OutArgument>
+                                                      </ui:AssignOperation.To>
+                                                      <ui:AssignOperation.Value>
+                                                        <InArgument x:TypeArguments="x:String">[str_tmp_LastNameManager.Trim]</InArgument>
+                                                      </ui:AssignOperation.Value>
+                                                    </ui:AssignOperation>
+                                                    <ui:AssignOperation sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+                                                      <ui:AssignOperation.To>
+                                                        <OutArgument x:TypeArguments="x:Boolean">[bool_ManagerGefunden]</OutArgument>
+                                                      </ui:AssignOperation.To>
+                                                      <ui:AssignOperation.Value>
+                                                        <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                      </ui:AssignOperation.Value>
+                                                    </ui:AssignOperation>
+                                                  </scg:List>
+                                                </ui:MultipleAssign.AssignOperations>
+                                              </ui:MultipleAssign>
+                                            </Sequence>
+                                          </If.Else>
+                                        </If>
+                                      </Sequence>
+                                    </ui:InterruptibleDoWhile.Body>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                  </ui:InterruptibleDoWhile>
+                                </Sequence>
+                                <Sequence DisplayName="Extract Manager" sap:VirtualizedContainerService.HintSize="478.4,92" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                  <Sequence.Variables>
+                                    <Variable x:TypeArguments="x:String" Name="str_managerMailId" />
+                                  </Sequence.Variables>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Brigitte'" sap:VirtualizedContainerService.HintSize="433.6,225.6" sap2010:WorkflowViewState.IdRef="NClick_21" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                                    <uix:NClick.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="737, 688, 250, 50" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='TD' colName='Vorname' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' colName='Vorname' class='' aaname='Brigitte' check:text='Brigitte' /&gt;" Guid="5d7dc727-e77c-4fec-9834-cae824d3b35d" InformativeScreenshot="4407e52e1f4e511b422186441f80364f.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                    </uix:NClick.Target>
+                                    <uix:NClick.VerifyOptions>
+                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                        <uix:VerifyExecutionOptions.Retry>
+                                          <InArgument x:TypeArguments="x:Boolean" />
+                                        </uix:VerifyExecutionOptions.Retry>
+                                        <uix:VerifyExecutionOptions.Timeout>
+                                          <InArgument x:TypeArguments="x:Double" />
+                                        </uix:VerifyExecutionOptions.Timeout>
+                                      </uix:VerifyExecutionOptions>
+                                    </uix:NClick.VerifyOptions>
+                                  </uix:NClick>
+                                  <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="visibleInnerText" DisplayName="Get Attribute 'email'" sap:VirtualizedContainerService.HintSize="433.6,240" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_2" Result="[str_managerMailId]" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                                    <uix:NGetAttributeGeneric.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="1237, 729, 460, 53" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl class='mat-list-item-content' tag='SPAN' innertext='Mail*' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl class='mat-list-item-content' tag='SPAN' innertext='Mail*' type='' aaname='' check:text='Mailj.brenner@muenchen.de' /&gt;" Guid="db3e3590-05de-4dea-9cde-6a804d77aa2c" InformativeScreenshot="c3803ac78470d5f52be50ef3ae5c113b.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                    </uix:NGetAttributeGeneric.Target>
+                                  </uix:NGetAttributeGeneric>
+                                  <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                    <Assign.To>
+                                      <OutArgument x:TypeArguments="x:String">[out_str_ManagerEmailId]</OutArgument>
+                                    </Assign.To>
+                                    <Assign.Value>
+                                      <InArgument x:TypeArguments="x:String">[str_managerMailId.Replace("Mail", "").Trim]</InArgument>
+                                    </Assign.Value>
+                                  </Assign>
+                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,176" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Manager für Excel Zeile: &quot; + in_int_excelIndex.ToString +&quot; gefunden&quot;]" />
+                                  <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Startseite'" sap:VirtualizedContainerService.HintSize="433.6,216.8" sap2010:WorkflowViewState.IdRef="NClick_22" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                                    <uix:NClick.Target>
+                                      <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="231, 352, 104, 22" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' type='' check:innerText='Startseite' /&gt;" Guid="44bfff1f-1c0a-4091-aad9-c8054f6f8c65" InformativeScreenshot="01aaec2c33d5085f38a34440a705cbfe.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+                                    </uix:NClick.Target>
+                                    <uix:NClick.VerifyOptions>
+                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                        <uix:VerifyExecutionOptions.Retry>
+                                          <InArgument x:TypeArguments="x:Boolean" />
+                                        </uix:VerifyExecutionOptions.Retry>
+                                        <uix:VerifyExecutionOptions.Timeout>
+                                          <InArgument x:TypeArguments="x:Double" />
+                                        </uix:VerifyExecutionOptions.Timeout>
+                                      </uix:VerifyExecutionOptions>
+                                    </uix:NClick.VerifyOptions>
+                                  </uix:NClick>
+                                </Sequence>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                        </Sequence>
                       </Sequence>
                     </If.Then>
                     <If.Else>
-                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="683,2815" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="680,3381.6" sap2010:WorkflowViewState.IdRef="Sequence_19">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="649,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="646.4,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
                           <ui:MultipleAssign.AssignOperations>
                             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
@@ -563,7 +1190,7 @@
                             </scg:List>
                           </ui:MultipleAssign.AssignOperations>
                         </ui:MultipleAssign>
-                        <Sequence DisplayName="Search Manager" sap:VirtualizedContainerService.HintSize="649,1524" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <Sequence DisplayName="Search Manager" sap:VirtualizedContainerService.HintSize="646.4,2086.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="str_tmp_FirstNameManager" />
                             <Variable x:TypeArguments="x:String" Name="str_tmp_LastNameManager" />
@@ -576,19 +1203,19 @@
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[bool_ManagerGefunden = False]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="615,1432" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                          <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[bool_ManagerGefunden = False]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="612.8,1994.4" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
                             <ui:InterruptibleDoWhile.Body>
-                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="581,1295" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="579.2,1856.8" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <If Condition="[int_tmp_initialCounter = 1]" sap:VirtualizedContainerService.HintSize="547,57" sap2010:WorkflowViewState.IdRef="If_3">
+                                <If Condition="[int_tmp_initialCounter = 1]" sap:VirtualizedContainerService.HintSize="545.6,612" sap2010:WorkflowViewState.IdRef="If_3">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                      <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                       <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
@@ -599,7 +1226,7 @@
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Iteration: &quot; + int_tmp_initialCounter.ToString]">
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,48" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Iteration: &quot; + int_tmp_initialCounter.ToString]">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -610,13 +1237,13 @@
                                     </Sequence>
                                   </If.Then>
                                   <If.Else>
-                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,333" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,333.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382,57" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Iteration: &quot; + int_tmp_initialCounter.ToString]">
+                                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,56.8" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Iteration: &quot; + int_tmp_initialCounter.ToString]">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -624,7 +1251,7 @@
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:LogMessage>
-                                      <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'ITM-KM4'" sap:VirtualizedContainerService.HintSize="382,216" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                                      <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'ITM-KM4'" sap:VirtualizedContainerService.HintSize="382.4,216.8" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                                         <uix:NClick.Target>
                                           <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="1198, 573, 77, 25" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='STRONG' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='STRONG' type='' class='' aaname='ITM-KM4' check:text='ITM-KM4' /&gt;" Guid="2c8161a1-0056-4bf6-acc5-1dbf34d3e9ea" InformativeScreenshot="8fabc11a8d0388a0d4e71fe60cbb5931.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                                         </uix:NClick.Target>
@@ -642,17 +1269,17 @@
                                     </Sequence>
                                   </If.Else>
                                 </If>
-                                <uix:NGetText DelayBefore="1" DisplayName="Get Text 'First Name'" sap:VirtualizedContainerService.HintSize="547,189" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" TextString="[str_tmp_FirstNameManager]" Version="V3">
+                                <uix:NGetText DelayBefore="1" DisplayName="Get Text 'First Name'" sap:VirtualizedContainerService.HintSize="545.6,189.6" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" TextString="[str_tmp_FirstNameManager]" Version="V3">
                                   <uix:NGetText.Target>
                                     <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="737, 688, 250, 50" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='TD' colName='Vorname' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' colName='Vorname' class='' /&gt;" Guid="a6358b99-d215-455b-8864-772d7283c05d" ImageBase64="" InformativeScreenshot="2866da0ec827e6265896defdd4b103ef.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                                   </uix:NGetText.Target>
                                 </uix:NGetText>
-                                <uix:NGetText DelayBefore="1" DisplayName="Get Text 'Last Name'" sap:VirtualizedContainerService.HintSize="547,189" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" TextString="[str_tmp_LastNameManager]" Version="V3">
+                                <uix:NGetText DelayBefore="1" DisplayName="Get Text 'Last Name'" sap:VirtualizedContainerService.HintSize="545.6,189.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" TextString="[str_tmp_LastNameManager]" Version="V3">
                                   <uix:NGetText.Target>
                                     <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="487, 688, 250, 50" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='TD' colName='Nachname' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' colName='Nachname' class='' /&gt;" Guid="681a4da5-92c1-4c13-b2fc-8b333b0a1ef8" ImageBase64="" InformativeScreenshot="48b935943187d73593ddc87ea841423c.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                                   </uix:NGetText.Target>
                                 </uix:NGetText>
-                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="547,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="545.6,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                                   <ui:MultipleAssign.AssignOperations>
                                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -674,7 +1301,7 @@
                                     </scg:List>
                                   </ui:MultipleAssign.AssignOperations>
                                 </ui:MultipleAssign>
-                                <If Condition="[str_fullNameEmployee = str_tmp_fullNameManager]" sap:VirtualizedContainerService.HintSize="547,621" sap2010:WorkflowViewState.IdRef="If_2">
+                                <If Condition="[str_fullNameEmployee = str_tmp_fullNameManager]" sap:VirtualizedContainerService.HintSize="545.6,625.6" sap2010:WorkflowViewState.IdRef="If_2">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -682,13 +1309,13 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <If.Then>
-                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="513,199" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="512,200.8" sap2010:WorkflowViewState.IdRef="Sequence_8">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,139" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,140.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
                                         <ui:MultipleAssign.AssignOperations>
                                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
@@ -705,13 +1332,13 @@
                                     </Sequence>
                                   </If.Then>
                                   <If.Else>
-                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="513,261" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="512,263.2" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,201" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                                      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,203.2" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
                                         <ui:MultipleAssign.AssignOperations>
                                           <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
                                             <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
@@ -754,7 +1381,7 @@
                             </sap:WorkflowViewStateService.ViewState>
                           </ui:InterruptibleDoWhile>
                         </Sequence>
-                        <Sequence DisplayName="Extract Manager" sap:VirtualizedContainerService.HintSize="649,1052" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                        <Sequence DisplayName="Extract Manager" sap:VirtualizedContainerService.HintSize="646.4,1055.2" sap2010:WorkflowViewState.IdRef="Sequence_13">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="x:String" Name="str_managerMailId" />
                           </Sequence.Variables>
@@ -764,7 +1391,7 @@
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Brigitte'" sap:VirtualizedContainerService.HintSize="434,225" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Brigitte'" sap:VirtualizedContainerService.HintSize="433.6,225.6" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="737, 688, 250, 50" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='TD' colName='Vorname' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' colName='Vorname' class='' aaname='Brigitte' check:text='Brigitte' /&gt;" Guid="5d7dc727-e77c-4fec-9834-cae824d3b35d" InformativeScreenshot="4407e52e1f4e511b422186441f80364f.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                             </uix:NClick.Target>
@@ -779,12 +1406,12 @@
                               </uix:VerifyExecutionOptions>
                             </uix:NClick.VerifyOptions>
                           </uix:NClick>
-                          <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="visibleInnerText" DisplayName="Get Attribute 'email'" sap:VirtualizedContainerService.HintSize="434,239" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_1" Result="[str_managerMailId]" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                          <uix:NGetAttributeGeneric x:TypeArguments="x:String" Attribute="visibleInnerText" DisplayName="Get Attribute 'email'" sap:VirtualizedContainerService.HintSize="433.6,240" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_1" Result="[str_managerMailId]" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                             <uix:NGetAttributeGeneric.Target>
                               <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="1237, 729, 460, 53" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl class='mat-list-item-content' tag='SPAN' innertext='Mail*' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl class='mat-list-item-content' tag='SPAN' innertext='Mail*' type='' aaname='' check:text='Mailj.brenner@muenchen.de' /&gt;" Guid="db3e3590-05de-4dea-9cde-6a804d77aa2c" InformativeScreenshot="c3803ac78470d5f52be50ef3ae5c113b.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                             </uix:NGetAttributeGeneric.Target>
                           </uix:NGetAttributeGeneric>
-                          <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+                          <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_2">
                             <Assign.To>
                               <OutArgument x:TypeArguments="x:String">[out_str_ManagerEmailId]</OutArgument>
                             </Assign.To>
@@ -792,8 +1419,8 @@
                               <InArgument x:TypeArguments="x:String">[str_managerMailId.Replace("Mail", "").Trim]</InArgument>
                             </Assign.Value>
                           </Assign>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,175" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Manager für Excel Zeile: &quot; + in_int_excelIndex.ToString +&quot; gefunden&quot;]" />
-                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Startseite'" sap:VirtualizedContainerService.HintSize="434,216" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,176" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Manager für Excel Zeile: &quot; + in_int_excelIndex.ToString +&quot; gefunden&quot;]" />
+                          <uix:NClick ActivateBefore="True" ClickType="Single" DelayBefore="1" DisplayName="Click 'Startseite'" sap:VirtualizedContainerService.HintSize="433.6,216.8" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="e5362964-bc55-4b28-8075-19130e6cb1d3" Version="V3">
                             <uix:NClick.Target>
                               <uix:TargetAnchorable BrowserURL="https://wilma.muenchen.de/home/telefonbuch" DesignTimeRectangle="231, 352, 104, 22" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl src='https://telefonbuch.muenchen.de' tag='IFRAME' /&gt;&lt;webctrl aaname='Startseite ' class='mat-button-wrapper' tag='SPAN' type='' check:innerText='Startseite' /&gt;" Guid="44bfff1f-1c0a-4091-aad9-c8054f6f8c65" InformativeScreenshot="01aaec2c33d5085f38a34440a705cbfe.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                             </uix:NClick.Target>
@@ -828,13 +1455,13 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_21">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="467.2,339.2" sap2010:WorkflowViewState.IdRef="Sequence_21">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_9">
+          <Assign sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_9">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[out_str_ManagerEmailId]</OutArgument>
             </Assign.To>
@@ -842,10 +1469,10 @@
               <InArgument x:TypeArguments="x:String">[in_str_direkteFuehrungskraft]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Manager für Excel Zeile: &quot; + in_int_excelIndex.ToString +&quot; bereits angegeben&quot;]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="433.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Manager für Excel Zeile: &quot; + in_int_excelIndex.ToString +&quot; bereits angegeben&quot;]" />
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1187,164" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Browser_Wilma_SearchManager Ended&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1283.2,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Browser_Wilma_SearchManager Ended&quot;]" />
   </Sequence>
 </Activity>
