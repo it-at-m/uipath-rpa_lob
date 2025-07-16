@@ -87,7 +87,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1670.4,920.8" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1236,1024.8" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="OutputFolderPath" />
       <Variable x:TypeArguments="x:String" Name="str_ManagerFirstName" />
@@ -181,7 +181,7 @@
               <InArgument x:TypeArguments="x:Int32" x:Key="in_int_excelIndex">[int_excelIndex]</InArgument>
               <OutArgument x:TypeArguments="x:String" x:Key="out_str_status">[str_status]</OutArgument>
               <InArgument x:TypeArguments="x:String" x:Key="in_str_direkteFuehrungskraft">[str_direkteFuehrungskraft]</InArgument>
-              <InArgument x:TypeArguments="x:String" x:Key="out_str_neueAbteilung">[str_neueAbteilung]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_str_neueAbteilung">[str_neueAbteilung]</OutArgument>
             </ui:InvokeWorkflowFile.Arguments>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -222,7 +222,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">440.2,615.4 440.2,655</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Word_Serienbrief_erstellen - Invoke Workflow File (Modules\Word\Word_Serienbrief_erstellen.xaml)" sap:VirtualizedContainerService.HintSize="344,174.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Modules\Word\Word_Serienbrief_erstellen.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Word_Serienbrief_erstellen - Invoke Workflow File (Modules\Word\Word_Serienbrief_erstellen.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Modules\Word\Word_Serienbrief_erstellen.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_Finaler_Ordner_Pfad">[str_Finaler_Ordner_Pfad]</InArgument>
                       <InArgument x:TypeArguments="x:Int32" x:Key="in_int_ExcelIndex">[int_excelIndex]</InArgument>
@@ -258,7 +258,7 @@
                           <av:Size x:Key="ShapeSize">110.4,70.4</av:Size>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Status_datei_erstellen - Invoke Workflow File (Modules\Excel\Status_datei_erstellen.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Modules\Excel\Status_datei_erstellen.xaml">
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Status_datei_erstellen - Invoke Workflow File (Modules\Excel\Status_datei_erstellen.xaml)" sap:VirtualizedContainerService.HintSize="338.4,174.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Modules\Excel\Status_datei_erstellen.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
                           <InArgument x:TypeArguments="x:String" x:Key="in_str_Vorname">[str_vorname]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_str_Nachname">[str_nachname]</InArgument>
