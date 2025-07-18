@@ -87,7 +87,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1612,618.5039999999999" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="912,1072.8" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="OutputFolderPath" />
       <Variable x:TypeArguments="x:String" Name="str_ManagerFirstName" />
@@ -112,6 +112,7 @@
       <Variable x:TypeArguments="x:String" Name="str_Beamter_Tarif" />
       <Variable x:TypeArguments="x:String" Name="str_direkteFuehrungskraft" />
       <Variable x:TypeArguments="x:String" Name="str_neueAbteilung" />
+      <Variable x:TypeArguments="x:String" Name="str_paula" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -132,7 +133,7 @@
           <av:PointCollection x:Key="ConnectorLocation">440.2,305.4 440.2,345</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_Mitarbeiterdaten_auslesen - Invoke Workflow File (Modules\Excel\Excel_Mitarbeiterdaten_auslesen.xaml)" sap:VirtualizedContainerService.HintSize="110.4,70.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\Excel\Excel_Mitarbeiterdaten_auslesen.xaml">
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Excel_Mitarbeiterdaten_auslesen - Invoke Workflow File (Modules\Excel\Excel_Mitarbeiterdaten_auslesen.xaml)" sap:VirtualizedContainerService.HintSize="342.4,174.4" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Modules\Excel\Excel_Mitarbeiterdaten_auslesen.xaml">
         <ui:InvokeWorkflowFile.Arguments>
           <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
           <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
@@ -150,6 +151,7 @@
           <OutArgument x:TypeArguments="x:Int32" x:Key="out_int_excelIndex">[int_excelIndex]</OutArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_strg_Beamter_Tarif">[str_Beamter_Tarif]</OutArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_direkteFuehrungskraft">[str_direkteFuehrungskraft]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_str_paula">[str_paula]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -243,6 +245,7 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_Ausschüttung">[str_Ausschuettung]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_Grund_der_Prämie_konkret_idR_genüg">[str_Grund_der_Praemie]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_neueAbteilung">[str_neueAbteilung]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_str_paula">[str_paula]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
