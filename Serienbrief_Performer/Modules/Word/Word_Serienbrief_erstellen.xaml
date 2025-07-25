@@ -132,7 +132,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Word_Serienbrief_erstellen" sap:VirtualizedContainerService.HintSize="1265.6000000000001,4055.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Word_Serienbrief_erstellen" sap:VirtualizedContainerService.HintSize="1076,4055.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_Serienbriefvorlage_Pfad" />
       <Variable x:TypeArguments="x:Boolean" Name="bool_abteilungGewechselt" />
