@@ -96,7 +96,7 @@
       <AssemblyReference>System.Private.Xml</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1146.4,544.8" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1233.6000000000001,764.8" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="OutputFolderPath" />
       <Variable x:TypeArguments="x:String" Name="str_ManagerFirstName" />
@@ -258,7 +258,7 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_Grund_der_Prämie_konkret_idR_genüg">[str_Grund_der_Praemie]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_neueAbteilung">[str_neueAbteilung]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_paula">[str_paula]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_str_referatFürVorlage">[str_präfixFürVorlage]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_str_präfixFürVorlage">[str_präfixFürVorlage]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">

@@ -20,7 +20,7 @@
     <x:Property Name="in_str_Grund_der_Prämie_konkret_idR_genüg" Type="InArgument(x:String)" />
     <x:Property Name="in_str_neueAbteilung" Type="InArgument(x:String)" />
     <x:Property Name="in_str_paula" Type="InArgument(x:String)" />
-    <x:Property Name="in_str_referatFürVorlage" Type="InArgument(x:String)" />
+    <x:Property Name="in_str_präfixFürVorlage" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -133,7 +133,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Word_Serienbrief_erstellen" sap:VirtualizedContainerService.HintSize="1065.6000000000001,7181.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Word_Serienbrief_erstellen" sap:VirtualizedContainerService.HintSize="948.8000000000001,7181.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_Serienbriefvorlage_Pfad" />
       <Variable x:TypeArguments="x:Boolean" Name="bool_abteilungGewechselt" />
@@ -144,7 +144,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="780.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[in_int_ExcelIndex.ToString + &quot;: Serienbrief erstellen in Word gestartet&quot;]" />
-    <If Condition="[in_str_referatFürVorlage = Nothing OrElse in_str_referatFürVorlage = &quot;&quot;]" sap:VirtualizedContainerService.HintSize="780.8,829.6" sap2010:WorkflowViewState.IdRef="If_7">
+    <If Condition="[in_str_präfixFürVorlage = Nothing OrElse in_str_präfixFürVorlage = &quot;&quot;]" sap:VirtualizedContainerService.HintSize="780.8,829.6" sap2010:WorkflowViewState.IdRef="If_7">
       <If.Then>
         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,108" sap2010:WorkflowViewState.IdRef="Sequence_25">
           <sap:WorkflowViewStateService.ViewState>
@@ -216,7 +216,7 @@
                     <OutArgument x:TypeArguments="x:String">[str_Serienbriefvorlage_Pfad]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[in_config("rpa001_SerialPrintTemplate").ToString + in_str_referatFürVorlage + "_LoB-Bescheid_Vorlage.docx"]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[in_config("rpa001_SerialPrintTemplate").ToString + in_str_präfixFürVorlage + "_LoB-Bescheid_Vorlage.docx"]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>
@@ -233,7 +233,7 @@
                     <OutArgument x:TypeArguments="x:String">[str_Serienbriefvorlage_Pfad]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String">[in_config("rpa001_SerialPrintTemplate").ToString + in_str_referatFürVorlage +"_" + in_str_Beamter_Tarif + "_LoB-Bescheid_Vorlage.docx"]</InArgument>
+                    <InArgument x:TypeArguments="x:String">[in_config("rpa001_SerialPrintTemplate").ToString + in_str_präfixFürVorlage +"_" + in_str_Beamter_Tarif + "_LoB-Bescheid_Vorlage.docx"]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>
