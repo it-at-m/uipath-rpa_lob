@@ -97,7 +97,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Explorer_Führungskraftordner_erstellen" sap:VirtualizedContainerService.HintSize="1043.2,2256" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Explorer_Führungskraftordner_erstellen" sap:VirtualizedContainerService.HintSize="1262.4,1665.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="Exist" />
       <Variable x:TypeArguments="x:String" Name="str_OutputFolderPath" />
@@ -123,7 +123,7 @@
               <OutArgument x:TypeArguments="x:String">[out_str_Final_Ordner_Pfad]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[in_Config("rpa001_FolderPath").ToString + "Output\Failed\"]</InArgument>
+              <InArgument x:TypeArguments="x:String">[in_Config("rpa001_FolderPath").ToString + "Output\Fehlgeschlagen\"]</InArgument>
             </Assign.Value>
           </Assign>
         </Sequence>
@@ -148,7 +148,7 @@
                     <OutArgument x:TypeArguments="x:String">[out_str_Final_Ordner_Pfad]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_Config("rpa001_FolderPath").ToString + "\Output\" + "Abteilung_gleich\" +  in_str_ManagerEmailId +"\"]</InArgument>
+                    <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_Config("rpa001_FolderPath").ToString + "\Output\" + "Final\" +  in_str_ManagerEmailId +"\"]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>
@@ -175,7 +175,7 @@
       </If.Else>
     </If>
     <ui:FolderExistsX DisplayName="Folder Exists" Exists="[Exist]" sap:VirtualizedContainerService.HintSize="568,166.4" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[out_str_Final_Ordner_Pfad]" />
-    <If Condition="[Exist]" sap:VirtualizedContainerService.HintSize="568,424" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[Exist]" sap:VirtualizedContainerService.HintSize="568,415.2" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89.6" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
@@ -193,28 +193,6 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="382.4,104" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[out_str_Final_Ordner_Pfad]" />
-        </Sequence>
-      </If.Else>
-    </If>
-    <ui:FolderExistsX DisplayName="Folder Exists" Exists="[DipaExists]" sap:VirtualizedContainerService.HintSize="568,166.4" sap2010:WorkflowViewState.IdRef="FolderExistsX_2" Path="[in_Config(&quot;rpa001_FolderPath&quot;).ToString + &quot;\Output\&quot;  +&quot;\DiPA\&quot;]" />
-    <If Condition="[DipaExists]" sap:VirtualizedContainerService.HintSize="568,415.2" sap2010:WorkflowViewState.IdRef="If_4">
-      <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-        </Sequence>
-      </If.Then>
-      <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,164" sap2010:WorkflowViewState.IdRef="Sequence_9">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="382.4,104" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[in_Config(&quot;rpa001_FolderPath&quot;).ToString + &quot;\Output\&quot; +&quot;\DiPA\&quot;]" />
         </Sequence>
       </If.Else>
     </If>

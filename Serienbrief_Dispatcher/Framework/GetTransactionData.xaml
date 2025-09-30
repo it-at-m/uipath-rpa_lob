@@ -110,22 +110,47 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetTransactionData" sap:VirtualizedContainerService.HintSize="981,1059" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetTransactionData" sap:VirtualizedContainerService.HintSize="1068.8000000000002,1716" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="pfad_exists" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="502,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start - GetTransactionData&quot;]" />
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_transactionData]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="502,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_str_InputExcelSheetName]" WorkbookPath="[in_str_InputFolderPath + &quot;/&quot; + in_str_InputExcelFileName]" />
-    <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Excel_Index" DataTable="[out_transactionData]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="502,218" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[out_transactionData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="502,361" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="502.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start - GetTransactionData&quot;]" />
+    <ui:FolderExistsX DisplayName="Folder Exists" Exists="[pfad_exists]" sap:VirtualizedContainerService.HintSize="502.4,166.4" sap2010:WorkflowViewState.IdRef="FolderExistsX_1" Path="[in_str_InputFolderPath]" />
+    <If Condition="[pfad_exists]" sap:VirtualizedContainerService.HintSize="502.4,485.6" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89.6" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,225.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="382.4,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Error" Message="[&quot;Pfad: &quot; + in_str_InputFolderPath + &quot; existiert nicht&quot;]" />
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_transactionData]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="502.4,120" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_str_InputExcelSheetName]" WorkbookPath="[in_str_InputFolderPath + in_str_InputExcelFileName]" />
+    <ui:AddDataColumn x:TypeArguments="x:String" AllowDBNull="{x:Null}" AutoIncrement="{x:Null}" Column="{x:Null}" DefaultValue="{x:Null}" MaxLength="{x:Null}" Unique="{x:Null}" ColumnName="Excel_Index" DataTable="[out_transactionData]" DisplayName="Add Data Column" sap:VirtualizedContainerService.HintSize="502.4,220" sap2010:WorkflowViewState.IdRef="AddDataColumn`1_2" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[out_transactionData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="502.4,362.4" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Text" sap:VirtualizedContainerService.HintSize="468,165" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Text" sap:VirtualizedContainerService.HintSize="467.2,164.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>

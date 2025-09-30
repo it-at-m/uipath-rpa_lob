@@ -96,7 +96,7 @@
       <AssemblyReference>System.Private.Xml</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1233.6000000000001,764.8" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="Process" sap:VirtualizedContainerService.HintSize="1085.6000000000001,589.6" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="OutputFolderPath" />
       <Variable x:TypeArguments="x:String" Name="str_ManagerFirstName" />
@@ -107,7 +107,7 @@
       <Variable x:TypeArguments="x:String" Name="str_Anrede" />
       <Variable x:TypeArguments="x:String" Name="str_filePath" />
       <Variable x:TypeArguments="x:String" Name="str_Ausschuettung" />
-      <Variable x:TypeArguments="x:String" Name="str_Grund_der_Praemie" />
+      <Variable x:TypeArguments="x:String" Name="str_Grund_1" />
       <Variable x:TypeArguments="x:String" Name="str_Unterschrift" />
       <Variable x:TypeArguments="x:String" Name="str_ausgezahlt_mit" />
       <Variable x:TypeArguments="x:String" Name="str_GruppenEinzelpraemie" />
@@ -123,6 +123,11 @@
       <Variable x:TypeArguments="x:String" Name="str_neueAbteilung" />
       <Variable x:TypeArguments="x:String" Name="str_paula" />
       <Variable x:TypeArguments="x:String" Name="str_präfixFürVorlage" />
+      <Variable x:TypeArguments="x:String" Name="str_Dienstbezeichnung" />
+      <Variable x:TypeArguments="x:String" Name="str_Grund_2" />
+      <Variable x:TypeArguments="x:String" Name="str_Grund_3" />
+      <Variable x:TypeArguments="x:String" Name="str_titel_nachname" />
+      <Variable x:TypeArguments="x:String" Name="str_titel" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -153,7 +158,6 @@
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_Anrede2">[str_Anrede2]</OutArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_Anrede">[str_Anrede]</OutArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_Ausschuettung">[str_Ausschuettung]</OutArgument>
-          <OutArgument x:TypeArguments="x:String" x:Key="out_str_Grund_der_Praemie">[str_Grund_der_Praemie]</OutArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_ausgezahlt_mit">[str_ausgezahlt_mit]</OutArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_GruppenEinzelpraemie">[str_GruppenEinzelpraemie]</OutArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_outputFolderPath">[str_outputFolderPath]</OutArgument>
@@ -164,6 +168,12 @@
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_paula">[str_paula]</OutArgument>
           <InArgument x:TypeArguments="sd:DataTable" x:Key="in_InputExcelData">[in_db_InputExcelData]</InArgument>
           <OutArgument x:TypeArguments="x:String" x:Key="out_str_präfixFürVorlage">[str_präfixFürVorlage]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_str_Dienstbezeichnung">[str_Dienstbezeichnung]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_str_Grund_1">[str_Grund_1]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_str_Grund_2">[str_Grund_2]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_str_Grund_3">[str_Grund_3]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_str_titel_nachname">[str_titel_nachname]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_str_Titel">[str_titel]</OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -255,10 +265,15 @@
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_OrgEinheit">[str_orgEinheit]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_Anrede2">[str_Anrede2]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_Ausschüttung">[str_Ausschuettung]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_str_Grund_der_Prämie_konkret_idR_genüg">[str_Grund_der_Praemie]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_neueAbteilung">[str_neueAbteilung]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_paula">[str_paula]</InArgument>
                       <InArgument x:TypeArguments="x:String" x:Key="in_str_präfixFürVorlage">[str_präfixFürVorlage]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_str_Dienstbezeichnung">[str_Dienstbezeichnung]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_str_Grund_1">[str_Grund_1]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_str_Grund_3">[str_Grund_3]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_str_Grund_2">[str_Grund_2]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_str_titel_nachname">[str_titel_nachname]</InArgument>
+                      <InArgument x:TypeArguments="x:String" x:Key="in_str_Titel">[str_titel]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -282,6 +297,7 @@
                           <InArgument x:TypeArguments="x:String" x:Key="in_str_status">[str_status]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_str_OrgEinheit">[str_orgEinheit]</InArgument>
                           <InArgument x:TypeArguments="x:String" x:Key="in_str_outputFolderPath">[str_outputFolderPath]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_str_paula">[str_paula]</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
