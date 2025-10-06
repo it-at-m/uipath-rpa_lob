@@ -1,0 +1,157 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Browser_Open_Firefox" this:Browser_Open_Firefox.in_str_wilmaTelephonebookLink="https://telefonbuch.muenchen.de/" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_str_wilmaTelephonebookLink" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1100,1335.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Browser_Open_Firefox_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Browser_Open_Firefox" sap:VirtualizedContainerService.HintSize="1110.4,1270.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1048,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Browser_Open_Firefox Started&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Browser Firefox: WiLMA | Telefonbuch" sap:VirtualizedContainerService.HintSize="1048,841.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" OpenMode="IfNotOpen" ScopeGuid="da7560fc-ab01-477f-a178-4562618f2264" Version="V2" WindowResize="Maximize">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1014.4,592.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NCheckState DisplayName="Check App State 'Name, Kurzbezeichnung,'" sap:VirtualizedContainerService.HintSize="952,502.4" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="da7560fc-ab01-477f-a178-4562618f2264" Timeout="30" Version="V3">
+              <uix:NCheckState.IfExists>
+                <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="449.6,259.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.2,168.8" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Wilma Telephone Book Opened&quot;]" />
+                </Sequence>
+              </uix:NCheckState.IfExists>
+              <uix:NCheckState.IfNotExists>
+                <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="449.6,205.6" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Throw Exception="[New SystemException(&quot;Failed to Open Wilma Telephone Book&quot;)]" sap:VirtualizedContainerService.HintSize="387.2,115.2" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                </Sequence>
+              </uix:NCheckState.IfNotExists>
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable BrowserURL="https://telefonbuch.muenchen.de/#/home" DesignTimeRectangle="122, 315, 68, 18" DesignTimeScaleFactor="1" FullSelectorArgument="&lt;webctrl aaname='Suchen' class='mat-button-wrapper' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Suchen' class='mat-button-wrapper' tag='SPAN' type='' check:innerText='Suchen' /&gt;" Guid="9f0fe35d-a8ee-4b60-86e0-165a5a646eec" InformativeScreenshot="0bf06d0ee1d050673370dbe2a6881af1.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
+              </uix:NCheckState.Target>
+            </uix:NCheckState>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-9, -9, 1938, 1048" BrowserType="Firefox" IconBase64="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" InformativeScreenshot="f7535d59e21c24ece4de4b3b4e8cb92e.png" Selector="&lt;html app='firefox.exe' title='*Telefonbuch' /&gt;" Title="WiLMA | Telefonbuch" Url="[in_str_wilmaTelephonebookLink]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1048,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Browser_Open_Firefox Ended&quot;]" />
+  </Sequence>
+</Activity>
