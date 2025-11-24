@@ -1,0 +1,6 @@
+{
+  "Name": "LoB-Serienbrief_mit_word",
+  "ProjectType": "Process",
+  "Description": "Modified Robotic Enterprise Framework ",
+  "MainFile": "Main.xaml"
+}
