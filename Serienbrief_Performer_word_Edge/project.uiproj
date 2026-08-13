@@ -1,0 +1,6 @@
+{
+  "Name": "LoB-Serienbrief_word_Edge",
+  "ProjectType": "Process",
+  "Description": "Modified Robotic Enterprise Framework ",
+  "MainFile": "Main.xaml"
+}

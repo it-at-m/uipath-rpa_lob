@@ -95,7 +95,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Explorer_Führungskraftordner_erstellen" sap:VirtualizedContainerService.HintSize="1068.8000000000002,892.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Explorer_Führungskraftordner_erstellen" sap:VirtualizedContainerService.HintSize="1145,924" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="Exist" />
       <Variable x:TypeArguments="x:String" Name="str_OutputFolderPath" />
@@ -107,19 +107,19 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="449.6,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Zeile: &quot; +in_int_excelIndex.ToString + &quot; Ordner erstellen&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="449.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Zeile: &quot; +in_int_excelIndex.ToString + &quot; Ordner erstellen&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="452,175" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_str_DiPA_Ordner]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_Config("rpa001_FolderPath").ToString + "\Output\"  +"\DiPA\"]</InArgument>
+        <InArgument x:TypeArguments="x:String" xml:space="preserve">[in_Config("rpa001_FolderPath").ToString + "\Output\"  +"\DiPA_" + DateTime.Now.Year.ToString]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:FolderExistsX DisplayName="Folder Exists" Exists="[DipaExists]" sap:VirtualizedContainerService.HintSize="449.6,166.4" sap2010:WorkflowViewState.IdRef="FolderExistsX_2" Path="[out_str_DiPA_Ordner]" />
-    <If Condition="[DipaExists]" sap:VirtualizedContainerService.HintSize="449.6,415.2" sap2010:WorkflowViewState.IdRef="If_4">
+    <ui:FolderExistsX DisplayName="Folder Exists" Exists="[DipaExists]" sap:VirtualizedContainerService.HintSize="452,167" sap2010:WorkflowViewState.IdRef="FolderExistsX_2" Path="[out_str_DiPA_Ordner]" />
+    <If Condition="[DipaExists]" sap:VirtualizedContainerService.HintSize="452,384" sap2010:WorkflowViewState.IdRef="If_4">
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,89.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -128,13 +128,13 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,164" sap2010:WorkflowViewState.IdRef="Sequence_9">
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,164" sap2010:WorkflowViewState.IdRef="Sequence_9">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="382.4,104" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[out_str_DiPA_Ordner]" />
+          <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Create Folder" sap:VirtualizedContainerService.HintSize="416,104" sap2010:WorkflowViewState.IdRef="CreateDirectory_2" Path="[out_str_DiPA_Ordner]" />
         </Sequence>
       </If.Else>
     </If>
