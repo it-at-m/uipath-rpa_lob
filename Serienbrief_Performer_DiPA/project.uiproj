@@ -1,0 +1,6 @@
+{
+  "Name": "LoB-Serienbrief_DiPA",
+  "ProjectType": "Process",
+  "Description": "Modified Robotic Enterprise Framework ",
+  "MainFile": "Main.xaml"
+}
